@@ -1,17 +1,34 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
 
-function Navbar() {
+export default function Navbar() {
+  const loc = useLocation();
   return (
-    <nav className="navbar">
-      <h2>Sensasia</h2>
-      <div className="nav-links">
-        <Link to="/">Home</Link>
-        <Link to="/menu">Menu</Link>
-        <Link to="/contact">Contact</Link>
+    <header className="nav">
+      <div className="nav-inner container">
+        <div className="brand">
+          {/* PLACEHOLDER: Drop /logo.png into public/ and swap h1 for <img src="/logo.png" ... /> */}
+          <h1 className="brand-title">Sensasia</h1>
+          <div className="brand-sub">Asian Fusion & Cocktails — Since 2012</div>
+        </div>
+
+        <nav className="links" aria-label="Main navigation">
+          <Link className={loc.pathname === "/" ? "active" : ""} to="/">Home</Link>
+          <Link className={loc.pathname === "/menu" ? "active" : ""} to="/menu">Menu</Link>
+          <Link className={loc.pathname === "/about" ? "active" : ""} to="/about">About</Link>
+          <Link className={loc.pathname === "/contact" ? "active" : ""} to="/contact">Contact</Link>
+
+          {/* Nav order button */}
+          <a
+            className="nav-order"
+            href="https://www.ubereats.com/lk/store/sensasia-restaurant-ragama/xSqQwTKNRIS7aBF5YRel2g"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Order Online
+          </a>
+        </nav>
       </div>
-    </nav>
+    </header>
   );
 }
-
-export default Navbar;
