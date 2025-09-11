@@ -1,55 +1,52 @@
 import React from "react";
 
-/* Place FoodMenu.pdf and DrinksMenu.pdf in public/ to enable these previews */
 export default function Menu() {
   return (
-    <section className="page container">
+    <section className="menu-section container">
+      {/* Hero Section */}
       <div className="menu-hero">
-        <h2>Our Menus (PDF)</h2>
-        <p className="muted">Open each PDF to view the full menu. If you want, replace the files in <code>/public</code>.</p>
+        <h2 className="menu-title">Our Menus</h2>
+        <p className="menu-subtitle">
+          From handcrafted delicacies to signature cocktails, experience the best
+          of Sensasia.
+        </p>
       </div>
 
+      {/* Menus Grid */}
       <div className="menu-grid">
+        {/* Food Menu */}
         <div className="menu-card">
-          <h3>Food Menu</h3>
-          <p className="muted">Full food menu with descriptions & prices (PDF preview).</p>
-
-          <div style={{ margin: "1rem 0" }}>
-            <iframe
-              title="Food Menu"
-              src="/FoodMenu.pdf"
-              width="100%"
-              height="480px"
-              style={{ border: "1px solid rgba(255,255,255,0.04)", borderRadius: "8px" }}
-            />
+          <div className="menu-header">
+            <h3>Food Menu</h3>
+            <p className="muted">Discover our full selection of Asian fusion dishes.</p>
           </div>
-
-          <div className="menu-actions">
-            <a className="btn btn-outline" href="/FoodMenu.pdf" target="_blank" rel="noreferrer">Open FoodMenu.pdf</a>
-          </div>
+          <iframe
+            title="Food Menu"
+            src="/FoodMenu.pdf#toolbar=0&navpanes=0&scrollbar=0"
+            width="100%"
+            height="500px"
+            className="menu-frame"
+          />
         </div>
 
+        {/* Drinks Menu */}
         <div className="menu-card">
-          <h3>Drinks Menu</h3>
-          <p className="muted">Cocktails & mocktail list — PDF preview below.</p>
-
-          <div style={{ margin: "1rem 0" }}>
-            <iframe
-              title="Drinks Menu"
-              src="/DrinksMenu.pdf"
-              width="100%"
-              height="480px"
-              style={{ border: "1px solid rgba(255,255,255,0.04)", borderRadius: "8px" }}
-            />
+          <div className="menu-header">
+            <h3>Drinks Menu</h3>
+            <p className="muted">
+              Signature cocktails, mocktails & timeless classics crafted by our
+              bartenders.
+            </p>
           </div>
-
-          <div className="menu-actions">
-            <a className="btn btn-outline" href="/DrinksMenu.pdf" target="_blank" rel="noreferrer">Open DrinksMenu.pdf</a>
-          </div>
+          <iframe
+            title="Drinks Menu"
+            src="/DrinksMenu.pdf#toolbar=0&navpanes=0&scrollbar=0"
+            width="100%"
+            height="500px"
+            className="menu-frame"
+          />
         </div>
       </div>
-
-      <p className="small muted">TIP: To update menu content, replace <code>/public/FoodMenu.pdf</code> and <code>/public/DrinksMenu.pdf</code> with new files (same filename).</p>
     </section>
   );
 }
