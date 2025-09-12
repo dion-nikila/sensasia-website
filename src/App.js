@@ -6,6 +6,9 @@ import Menu from "./Menu";
 import About from "./About";
 import Contact from "./Contact";
 import Footer from "./Footer";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+
 
 export default function App() {
   return (
