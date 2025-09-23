@@ -183,7 +183,7 @@ body{
 .event-title{ font-size:1.25rem; font-weight:800; margin-top:6px; color:#fff; }
 .event-time{ font-size:0.95rem; color:var(--muted); margin-top:6px; }
 
-/* Map */
+/* map */
 .map-container, .map-wrap {
   margin-top:28px;
   border-radius:14px;
@@ -192,9 +192,17 @@ body{
   box-shadow:0 14px 40px rgba(0,0,0,0.6);
   position:relative;
   width:100%;
-  min-height:450px;
+  height:450px; /* fixed height instead of min-height */
 }
-.map-container iframe, .map-wrap iframe { width:100%; height:100%; border:0; display:block; }
+.map-container iframe, .map-wrap iframe { 
+  width:100%; 
+  height:100%; 
+  border:0; 
+  display:block; 
+}
+@media(max-width:760px){
+  .map-container, .map-wrap{ height:280px; } /* smaller screens */
+}
 
 /* Footer */
 .footer {
@@ -237,6 +245,9 @@ body{
   .map-container, .map-wrap{ height:280px; }
 }
 
+.nav-inner.container {
+  padding: 0 1.25rem; /* no vertical padding */
+}
 
 /* Menus Section */
 .menu-section {
@@ -420,4 +431,144 @@ body{
   .contact-cards { flex-direction: column; gap:20px; }
   .page-heading { font-size:2rem; }
   .contact-map-card .map-embed { height:220px; }
+}
+
+/* ===== SPOTLIGHT CLICKABLE ===== */
+.clickable {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.clickable:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* ===== MODAL FIXED ===== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75); /* dark indigo overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 16px;
+  overflow-y: auto; /* scroll on small screens */
+}
+
+.modal-content {
+  background: rgba(33, 2, 2, 0.7); /* dark background matches theme */
+  color: #eee;
+  border-radius: 16px;
+  max-width: 90%; /* scales with viewport */
+  width: 480px; /* default width */
+  max-height: 90vh; /* prevents overflow beyond screen */
+  padding: 24px;
+  text-align: center;
+  position: relative;
+  box-sizing: border-box;
+  animation: modalFade 0.3s ease;
+  overflow-y: auto; /* scroll if content is too tall */
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* IMAGE */
+.modal-content img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+/* HEADINGS AND TEXT */
+.modal-content h2 {
+  margin-bottom: 12px;
+  font-size: 1.6rem;
+  color: #ff4c4c; /* crimson accent */
+  word-wrap: break-word;
+}
+
+.modal-content p {
+  margin-bottom: 20px;
+  color: #ccc; /* readable on dark background */
+  word-wrap: break-word;
+}
+
+/* CLOSE BUTTON */
+.btn-close {
+  padding: 8px 16px;
+  border: 2px solid #ff4c4c;
+  background: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #ff4c4c;
+  transition: all 0.3s;
+  align-self: center; /* center close button horizontally */
+}
+.btn-close:hover {
+  background: #ff4c4c;
+  color: #111;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes modalFade {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ===== SMALL BUTTON / RESERVE BUTTON ===== */
+.small-btn {
+  display: inline-block;
+  font-size: 0.9rem;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-align: center;
+  width: 140px; /* FIXED width for all buttons */
+  margin-top: 10px;
+  transition: background 0.3s, color 0.3s, border 0.3s;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+/* THEMED BUTTON */
+.btn-outline.small-btn {
+  border: 1px solid #ff4c4c;
+  color: #ff4c4c;
+  background: transparent;
+}
+.btn-outline.small-btn:hover {
+  background: #ff4c4c;
+  color: #111;
+}
+
+/* FULL-WIDTH BUTTONS ON MOBILE */
+@media (max-width: 760px) {
+  .small-btn {
+    width: 100%; /* still responsive */
+  }
+}
+
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .large-schedule-grid, .spotlights-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .modal-content {
+    width: 95%;
+    padding: 16px;
+    max-height: 85vh;
+  }
+  .modal-content img {
+    max-height: 200px;
+  }
 }
