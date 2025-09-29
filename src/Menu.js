@@ -20,13 +20,12 @@ export default function Menu() {
             <h3>Food Menu</h3>
             <p className="muted">Discover our full selection of Asian fusion dishes.</p>
           </div>
-          <iframe
-            title="Food Menu"
-            src="/FoodMenu.pdf#toolbar=0&navpanes=0&scrollbar=0"
-            width="100%"
-            height="500px"
-            className="menu-frame"
-          />
+          <div className="menu-frame-wrapper">
+            <iframe
+              title="Food Menu"
+              src="/FoodMenu.pdf#toolbar=0&navpanes=0&scrollbar=0"
+            />
+          </div>
         </div>
 
         {/* Drinks Menu */}
@@ -34,17 +33,15 @@ export default function Menu() {
           <div className="menu-header">
             <h3>Drinks Menu</h3>
             <p className="muted">
-              Signature cocktails, mocktails & timeless classics crafted by our
-              bartenders.
+              Signature cocktails, mocktails & timeless classics crafted by our bartenders.
             </p>
           </div>
-          <iframe
-            title="Drinks Menu"
-            src="/DrinksMenu.pdf#toolbar=0&navpanes=0&scrollbar=0"
-            width="100%"
-            height="500px"
-            className="menu-frame"
-          />
+          <div className="menu-frame-wrapper">
+            <iframe
+              title="Drinks Menu"
+              src="/DrinksMenu.pdf#toolbar=0&navpanes=0&scrollbar=0"
+            />
+          </div>
         </div>
       </div>
     </section>

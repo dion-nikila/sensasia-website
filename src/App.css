@@ -489,12 +489,18 @@ body{
 .menu-section {
   padding: 5rem 1rem;
   text-align: center;
+  color: #fff;
+}
+
+/* Hero */
+.menu-hero {
+  margin-bottom: 3rem;
 }
 
 .menu-title {
   font-size: 2.2rem;
   margin-bottom: 0.5rem;
-  color: #fff; /* readable on dark background */
+  color: #8b0f0f; /* crimson accent */
 }
 
 .menu-subtitle {
@@ -542,7 +548,7 @@ body{
 .menu-frame-wrapper {
   position: relative;
   width: 100%;
-  padding-top: 141%; /* maintains aspect ratio */
+  padding-top: 141%; /* maintains aspect ratio for desktop */
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
@@ -557,6 +563,16 @@ body{
   border: none;
 }
 
+/* Optional link below iframe for mobile PDF fallback */
+.menu-frame-link {
+  display: block;
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  color: #8b0f0f;
+  text-decoration: underline;
+  text-align: right;
+}
+
 /* Mobile Adjustments */
 @media (max-width: 768px) {
   .menu-grid {
@@ -565,7 +581,23 @@ body{
   }
 
   .menu-frame-wrapper {
-    padding-top: 180%; /* taller to fit PDF better on narrow screens */
+    padding-top: 200%; /* taller for mobile to fit PDF better */
+  }
+
+  .menu-title {
+    font-size: 1.8rem;
+  }
+
+  .menu-subtitle {
+    font-size: 1rem;
+  }
+
+  .menu-header h3 {
+    font-size: 1.4rem;
+  }
+
+  .menu-header p {
+    font-size: 0.9rem;
   }
 }
 
