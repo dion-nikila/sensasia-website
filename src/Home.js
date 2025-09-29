@@ -6,13 +6,13 @@ export default function Home() {
 
   const spotlightDetails = {
     food: {
-      title: "Pan-seared Miso Salmon",
-      desc: "Sticky soy glaze · sesame greens · delicate balance of umami and freshness.",
+      title: "Sensasia’s Special — Creamy Prawn",
+      desc: "Juicy prawns tossed in our signature creamy sauce · rich, savory, and mildly spiced with Asian flavors.",
       img: "/images/spotlight.jpg",
     },
     drink: {
-      title: "Silk Road Cooler",
-      desc: "Herbal mocktail · citrus & tonic · refreshing and light.",
+      title: "Blue Margarita",
+      desc: "A vibrant Rum and Vodka based cocktail · blue curaçao · lime juice · perfectly chilled with a citrus kick.",
       img: "/images/bar-special.jpg",
     },
   };
@@ -43,7 +43,7 @@ export default function Home() {
               </a>
             </div>
             <p className="hero-paragraph muted" style={{ marginTop: 16 }}>
-              A refined take on Asian classics — seasonal ingredients, craft cocktails,
+              A refined take on Asian classics. seasonal ingredients, craft cocktails,
               and warm evenings since 2012. Reservations recommended on busy nights.
             </p>
           </div>
@@ -52,14 +52,14 @@ export default function Home() {
 
       {/* WEEKLY LINEUP */}
       <section className="section schedule container">
-        <h2 className="section-title">Weekly Lineup</h2>
-        <p className="muted section-lead">Regular nights at Sensasia</p>
+        <h2 className="section-title">Our week at Sensasia</h2>
+        <p className="muted section-lead">At Sensasia, every night is special. Discover our regular evenings filled with flavor and rhythm.</p>
 
         <div className="large-schedule-grid">
           {[
-            { day: "Wednesday", title: "Karaoke Night", time: "Open mic • 8:30 PM" },
-            { day: "Friday", title: "Live Band", time: "Doors 8:00 PM • Band 9:00 PM" },
-            { day: "Saturday", title: "Calypso Night", time: "9:30 PM — Late" },
+            { day: "Wednesday", title: "Karaoke Night", time: "Open mic • 7:30 PM" },
+            { day: "Friday", title: "Live Band", time: "Band 7:30 PM" },
+            { day: "Saturday", title: "Calypso Night", time: "8:00 PM" },
           ].map((event, idx) => (
             <div className="event-card" key={idx}>
               <div className="event-icon"><FaMusic /></div>
@@ -86,9 +86,9 @@ export default function Home() {
           >
             <div className="spotlight-inner" style={{ zIndex: 2 }}>
               <div className="spotlight-label">Spotlight</div>
-              <div className="spotlight-title">Pan-seared Miso Salmon</div>
+              <div className="spotlight-title">Sensasia's Special - Creamy Prawn</div>
               <div className="spotlight-desc muted">
-                Sticky soy glaze · sesame greens
+                Creamy Cheese Sauce · Fresh Peeled Prawns
               </div>
             </div>
           </article>
@@ -100,9 +100,9 @@ export default function Home() {
           >
             <div className="spotlight-inner" style={{ zIndex: 2 }}>
               <div className="spotlight-label">Bar Special</div>
-              <div className="spotlight-title">Silk Road Cooler</div>
+              <div className="spotlight-title">Blue Margarita</div>
               <div className="spotlight-desc muted">
-                Herbal mocktail · citrus & tonic
+                Rum · Vodka · Citrus · Honey · Blue Curaçao
               </div>
             </div>
           </article>
@@ -113,7 +113,7 @@ export default function Home() {
       <section className="section featured container">
         <h2 className="section-title">Featured Highlights</h2>
         <p className="muted section-lead">
-          A selection of our most-loved dishes & drinks.
+          A handpicked selection of our most-loved dishes, prepared with care and flavor in every detail.
         </p>
 
         <div className="featured-grid">
@@ -123,10 +123,10 @@ export default function Home() {
           >
             <div className="featured-meta" style={{ zIndex: 2 }}>
               <div>
-                <div className="featured-name">Miso Glazed Salmon</div>
-                <div className="muted">Crisp skin, sticky soy</div>
+                <div className="featured-name">Cheese Kottu</div>
+                <div className="muted">1kg Portion creamy goodness</div>
               </div>
-              <div className="featured-price">1,600.00</div>
+              <div className="featured-price">2200.00</div>
             </div>
           </article>
           <article
@@ -135,34 +135,34 @@ export default function Home() {
           >
             <div className="featured-meta" style={{ zIndex: 2 }}>
               <div>
-                <div className="featured-name">Truffle Dan Dan Noodles</div>
-                <div className="muted">Spiced chili oil, silky noodles</div>
+                <div className="featured-name">Pepper Pork</div>
+                <div className="muted">Juicy pork, fiery pepper, irresistible flavor.</div>
               </div>
-              <div className="featured-price">1,450.00</div>
+              <div className="featured-price">2500.00</div>
             </div>
           </article>
           <article
             className="featured-card tinted"
-            style={{ backgroundImage: "url('/images/drink1.jpg')" }}
+            style={{ backgroundImage: "url('/images/food3.jpg')" }}
           >
             <div className="featured-meta" style={{ zIndex: 2 }}>
               <div>
-                <div className="featured-name">Lychee Ginger Martini</div>
-                <div className="muted">Lychee · ginger · citrus</div>
+                <div className="featured-name">Signature Fried Handallo</div>
+                <div className="muted">Crunchy, flavorful handallo with island spice.</div>
               </div>
-              <div className="featured-price">850.00</div>
+              <div className="featured-price">1800.00</div>
             </div>
           </article>
           <article
             className="featured-card tinted"
-            style={{ backgroundImage: "url('/images/drink2.jpg')" }}
+            style={{ backgroundImage: "url('/images/food4.jpg')" }}
           >
             <div className="featured-meta" style={{ zIndex: 2 }}>
               <div>
-                <div className="featured-name">Silk Road Cooler</div>
-                <div className="muted">Herbal infusion · tonic</div>
+                <div className="featured-name">Sensasia Special Rice</div>
+                <div className="muted">Hearty mixed meat rice, bursting with flavor in every bite.</div>
               </div>
-              <div className="featured-price">550.00</div>
+              <div className="featured-price">2000.00</div>
             </div>
           </article>
         </div>

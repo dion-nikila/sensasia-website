@@ -6,6 +6,8 @@ const images = [
   "/images/about2.jpg",
   "/images/about3.jpg",
   "/images/about4.jpg",
+  "/images/about5.jpg",
+  "/images/about6.jpg",
 ]; 
 const About = () => {
   const settings = {
