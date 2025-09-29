@@ -30,13 +30,12 @@ body{
 /* NAVBAR */
 .nav {
   border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-  background: linear-gradient(180deg, rgba(0,0,0,0.5), rgba(0,0,0,0.25));
+  background: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.3));
   position: sticky;     /* keeps navbar at top */
   top: 0;
   z-index: 9999;
   backdrop-filter: blur(6px);
-  padding-top: 0.6rem;  
-  padding-bottom: 0.6rem;
+  padding: 0.75rem 0;   /* slightly more compact */
 }
 
 .nav-inner {
@@ -137,14 +136,6 @@ body{
   }
 }
 
-
-/* Mobile Hamburger */
-.nav-toggle{ display:none; font-size:1.5rem; color:var(--white); cursor:pointer; }
-@media(max-width:760px){
-  .links{ display:none; flex-direction:column; width:100%; margin-top:10px; }
-  .links.active{ display:flex; }
-  .nav-toggle{ display:block; }
-}
 @media(max-width:460px){
   .nav-order{ width:100%; margin-top:6px; text-align:center; }
   .nav-inner{ flex-direction: column; align-items:flex-start; }
@@ -156,22 +147,22 @@ body{
 .btn-outline{ background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--white); padding:0.55rem 0.9rem; border-radius:8px; }
 .btn-primary-hero{ padding:0.95rem 1.4rem; border-radius:12px; font-weight:800; background: linear-gradient(90deg,var(--crimson),var(--crimson-deep)); box-shadow:0 10px 28px rgba(139,15,15,0.18); color:#fff; }
 
-/* Secondary hero button – more visible, centered text, elegant style */
+/* Secondary hero button */
 .btn-secondary-hero {
-  background: rgba(255, 255, 255, 0.12);  /* subtle light background */
-  color: #fff;                             /* text color */
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 0.95rem 1.4rem;                 /* same height as primary button */
+  padding: 0.95rem 1.4rem;
   border-radius: 12px;
   font-weight: 800;
   display: flex;
-  align-items: center;                      /* vertically center text */
-  justify-content: center;                  /* horizontally center text */
+  align-items: center;
+  justify-content: center;
   transition: all 0.25s ease;
 }
 
 .btn-secondary-hero:hover {
-  background: rgba(255, 255, 255, 0.22);  /* slightly brighter on hover */
+  background: rgba(255, 255, 255, 0.22);
   transform: translateY(-2px);
   color: #fff;
   border-color: rgba(255, 255, 255, 0.3);
@@ -179,14 +170,14 @@ body{
 
 @media (max-width: 768px) {
   .hero-actions {
-    flex-direction: column;   /* stack buttons */
+    flex-direction: column; 
     gap: 12px;
   }
   
   .hero-actions .btn-primary-hero,
   .hero-actions .btn-secondary-hero {
-    width: 100%;              /* full width */
-    justify-content: center;  /* center text */
+    width: 100%; 
+    justify-content: center;
   }
 }
 
