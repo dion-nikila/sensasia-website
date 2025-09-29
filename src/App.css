@@ -486,13 +486,13 @@ body{
 }
 
 /* Menus Section */
+
 .menu-section {
   padding: 5rem 1rem;
   text-align: center;
   color: #fff;
 }
 
-/* Hero */
 .menu-hero {
   margin-bottom: 3rem;
 }
@@ -500,12 +500,12 @@ body{
 .menu-title {
   font-size: 2.2rem;
   margin-bottom: 0.5rem;
-  color: #8b0f0f; /* crimson accent */
+  color: #8b0f0f;
 }
 
 .menu-subtitle {
   font-size: 1.1rem;
-  color: #bfb9b9; /* muted text */
+  color: #bfb9b9;
   margin-bottom: 3rem;
 }
 
@@ -516,22 +516,19 @@ body{
   gap: 2.5rem;
 }
 
-/* Individual Menu Card */
 .menu-card {
   background: #121212;
   padding: 2rem;
   border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-  text-align: left;
 }
 
 .menu-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.45);
 }
 
-/* Menu Header */
 .menu-header h3 {
   font-size: 1.6rem;
   margin-bottom: 0.3rem;
@@ -544,14 +541,13 @@ body{
   margin-bottom: 1.2rem;
 }
 
-/* Responsive Iframe Wrapper */
 .menu-frame-wrapper {
   position: relative;
   width: 100%;
-  padding-top: 141%; /* maintains aspect ratio for desktop */
+  padding-top: 141%; /* maintains aspect ratio */
   overflow: hidden;
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
 
 .menu-frame-wrapper iframe {
@@ -563,16 +559,6 @@ body{
   border: none;
 }
 
-/* Optional link below iframe for mobile PDF fallback */
-.menu-frame-link {
-  display: block;
-  margin-top: 0.8rem;
-  font-size: 0.9rem;
-  color: #8b0f0f;
-  text-decoration: underline;
-  text-align: right;
-}
-
 /* Mobile Adjustments */
 @media (max-width: 768px) {
   .menu-grid {
@@ -581,7 +567,7 @@ body{
   }
 
   .menu-frame-wrapper {
-    padding-top: 200%; /* taller for mobile to fit PDF better */
+    padding-top: 200%; /* taller for mobile */
   }
 
   .menu-title {
@@ -600,6 +586,7 @@ body{
     font-size: 0.9rem;
   }
 }
+
 
 
 /* About Section */

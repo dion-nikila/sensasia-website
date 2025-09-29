@@ -22,9 +22,10 @@ export default function Menu() {
           </div>
           <div className="menu-frame-wrapper">
             <iframe
-              title="Food Menu"
               src="/FoodMenu.pdf#toolbar=0&navpanes=0&scrollbar=0"
-            />
+              title="Food Menu"
+              frameBorder="0"
+            ></iframe>
           </div>
         </div>
 
@@ -32,15 +33,14 @@ export default function Menu() {
         <div className="menu-card">
           <div className="menu-header">
             <h3>Drinks Menu</h3>
-            <p className="muted">
-              Signature cocktails, mocktails & timeless classics crafted by our bartenders.
-            </p>
+            <p className="muted">Signature cocktails, mocktails & timeless classics.</p>
           </div>
           <div className="menu-frame-wrapper">
             <iframe
-              title="Drinks Menu"
               src="/DrinksMenu.pdf#toolbar=0&navpanes=0&scrollbar=0"
-            />
+              title="Drinks Menu"
+              frameBorder="0"
+            ></iframe>
           </div>
         </div>
       </div>
