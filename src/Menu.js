@@ -24,7 +24,6 @@ export default function Menu() {
             height="600px"
           >
             <p>
-              <FaUtensils style={{ marginRight: "0.3rem" }} />
               You can view our Food menu{" "}
               <a href="/FoodMenu.pdf" target="_blank" rel="noreferrer">
                 here
@@ -45,7 +44,6 @@ export default function Menu() {
             height="600px"
           >
             <p>
-              <FaCocktail style={{ marginRight: "0.3rem" }} />
               You can view our Drinks menu{" "}
               <a href="/DrinksMenu.pdf" target="_blank" rel="noreferrer">
                 here
