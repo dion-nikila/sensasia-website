@@ -39,7 +39,7 @@ export default function Home() {
                 Order Online — Uber Eats
               </a>
               <a className="btn btn-outline" href="/menu">
-                View Menu (PDF)
+                View Menu
               </a>
             </div>
             <p className="hero-paragraph muted" style={{ marginTop: 16 }}>
