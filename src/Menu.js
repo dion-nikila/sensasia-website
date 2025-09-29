@@ -1,4 +1,5 @@
 import React from "react";
+import { FaUtensils, FaCocktail } from "react-icons/fa";
 
 export default function Menu() {
   return (
@@ -14,7 +15,7 @@ export default function Menu() {
         {/* Food Menu */}
         <div className="menu-card">
           <div className="menu-header">
-            <h3>Food Menu</h3>
+            <h3><FaUtensils style={{ marginRight: "0.5rem" }} /> Food Menu</h3>
           </div>
           <object
             data="/FoodMenu.pdf"
@@ -22,14 +23,20 @@ export default function Menu() {
             width="100%"
             height="600px"
           >
-            <p> You can <a href="/FoodMenu.pdf" target="_blank" rel="noreferrer">view our Food menu here</a>.</p>
+            <p>
+              <FaUtensils style={{ marginRight: "0.3rem" }} />
+              You can view our Food menu{" "}
+              <a href="/FoodMenu.pdf" target="_blank" rel="noreferrer">
+                here
+              </a>.
+            </p>
           </object>
         </div>
 
         {/* Drinks Menu */}
         <div className="menu-card">
           <div className="menu-header">
-            <h3>Drinks Menu</h3>
+            <h3><FaCocktail style={{ marginRight: "0.5rem" }} /> Drinks Menu</h3>
           </div>
           <object
             data="/DrinksMenu.pdf"
@@ -37,7 +44,13 @@ export default function Menu() {
             width="100%"
             height="600px"
           >
-            <p>You can <a href="/DrinksMenu.pdf" target="_blank" rel="noreferrer">view our Drinks menu here</a>.</p>
+            <p>
+              <FaCocktail style={{ marginRight: "0.3rem" }} />
+              You can view our Drinks menu{" "}
+              <a href="/DrinksMenu.pdf" target="_blank" rel="noreferrer">
+                here
+              </a>.
+            </p>
           </object>
         </div>
       </div>
