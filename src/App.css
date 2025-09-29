@@ -558,6 +558,21 @@ body{
   height: 100%;
   border: none;
 }
+.menu-card object {
+  width: 100%;
+  height: 600px;  /* adjust height for desktop */
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+/* Mobile adjustments */
+@media(max-width: 768px){
+  .menu-card object {
+    height: 500px;  /* smaller for mobile */
+  }
+}
+
 
 /* Mobile Adjustments */
 @media (max-width: 768px) {
