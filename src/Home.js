@@ -38,9 +38,10 @@ export default function Home() {
               >
                 Order Online — Uber Eats
               </a>
-              <a className="btn btn-outline" href="/menu">
-                View Menu
+              <a className="btn-secondary-hero" href="/menu">
+                  View Menu
               </a>
+
             </div>
             <p className="hero-paragraph muted" style={{ marginTop: 16 }}>
               A refined take on Asian classics. seasonal ingredients, craft cocktails,

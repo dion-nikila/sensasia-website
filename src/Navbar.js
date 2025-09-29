@@ -8,10 +8,17 @@ export default function Navbar() {
   return (
     <header className="nav">
       <div className="nav-inner container">
+        {/* Brand Logo + Text */}
         <div className="brand">
-          {/* PLACEHOLDER: Drop /logo.png into public/ and swap h1 for <img src="/logo.png" ... /> */}
-          <h1 className="brand-title">Sensasia</h1>
-          <div className="brand-sub">Asian Fusion & Cocktails — Since 2012</div>
+          <img
+            src="/images/logo.jpg"
+            alt="Sensasia Logo"
+            className="brand-logo"
+          />
+          <div className="brand-text">
+            <div className="brand-title">Sensasia Restaurant</div>
+            <div className="brand-sub">Asian Fusion & Cocktails — Since 2012</div>
+          </div>
         </div>
 
         {/* Hamburger for mobile */}
@@ -22,13 +29,13 @@ export default function Navbar() {
           &#9776;
         </div>
 
+        {/* Navigation Links */}
         <nav className={`links ${mobileOpen ? "active" : ""}`} aria-label="Main navigation">
           <Link className={loc.pathname === "/" ? "active" : ""} to="/">Home</Link>
           <Link className={loc.pathname === "/menu" ? "active" : ""} to="/menu">Menu</Link>
           <Link className={loc.pathname === "/about" ? "active" : ""} to="/about">About</Link>
           <Link className={loc.pathname === "/contact" ? "active" : ""} to="/contact">Contact</Link>
 
-          {/* Nav order button */}
           <a
             className="nav-order"
             href="https://www.ubereats.com/lk/store/sensasia-restaurant-ragama/xSqQwTKNRIS7aBF5YRel2g"
