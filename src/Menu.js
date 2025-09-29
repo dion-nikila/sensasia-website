@@ -22,7 +22,7 @@ export default function Menu() {
             width="100%"
             height="600px"
           >
-            <p>Your browser does not support PDFs. You can <a href="/FoodMenu.pdf" target="_blank" rel="noreferrer">view it here</a>.</p>
+            <p> You can <a href="/FoodMenu.pdf" target="_blank" rel="noreferrer">view our Food menu here</a>.</p>
           </object>
         </div>
 
@@ -37,7 +37,7 @@ export default function Menu() {
             width="100%"
             height="600px"
           >
-            <p>Your browser does not support PDFs. You can <a href="/DrinksMenu.pdf" target="_blank" rel="noreferrer">view it here</a>.</p>
+            <p>You can <a href="/DrinksMenu.pdf" target="_blank" rel="noreferrer">view our Drinks menu here</a>.</p>
           </object>
         </div>
       </div>
