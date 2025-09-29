@@ -39,7 +39,7 @@ export default function Navbar() {
           <Link className={loc.pathname === "/" ? "active" : ""} to="/">Home</Link>
           <Link className={loc.pathname === "/menu" ? "active" : ""} to="/menu">Menu</Link>
           <Link className={loc.pathname === "/about" ? "active" : ""} to="/about">About</Link>
-          <Link className={loc.pathname === "/contact" ? "active" : ""} to="/contact">Contact</Link>
+          <Link className={loc.pathname === "/contact" ? "active" : ""} to="/contact">Contact us</Link>
 
           <a
             className="nav-order"
