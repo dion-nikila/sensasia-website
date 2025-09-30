@@ -15,14 +15,16 @@ export default function Navbar() {
       <div className="nav-inner container">
         {/* Brand Logo + Text */}
         <div className="brand">
+        <Link className={loc.pathname === "/" ? "active" : ""} to="/">
           <img
             src="/images/logo.jpg"
             alt="Sensasia Logo"
             className="brand-logo"
           />
+        </Link> 
           <div className="brand-text">
             <div className="brand-title">Sensasia Restaurant</div>
-            <div className="brand-sub">Authentic Asian Fusion Cuisine — Since 2012</div>
+            <div className="brand-sub">Cocktails & Asian Cuisine</div>
           </div>
         </div>
 

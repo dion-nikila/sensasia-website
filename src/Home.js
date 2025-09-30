@@ -45,7 +45,7 @@ export default function Home() {
             </div>
             <p className="hero-paragraph muted" style={{ marginTop: 16 }}>
               A refined take on Asian classics. seasonal ingredients, craft cocktails,
-              and warm evenings since 2012. 
+              and warm evenings. Only the best times with family, friends and everyone in between. 
             </p>
           </div>
         </div>
