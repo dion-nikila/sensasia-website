@@ -45,7 +45,7 @@ export default function Home() {
             </div>
             <p className="hero-paragraph muted" style={{ marginTop: 16 }}>
               A refined take on Asian classics. seasonal ingredients, craft cocktails,
-              and warm evenings since 2012. Reservations recommended on busy nights.
+              and warm evenings since 2012. 
             </p>
           </div>
         </div>
@@ -125,9 +125,8 @@ export default function Home() {
             <div className="featured-meta" style={{ zIndex: 2 }}>
               <div>
                 <div className="featured-name">Cheese Kottu</div>
-                <div className="muted">1kg Portion creamy goodness</div>
+                <div className="muted">1kg Portion of creamy goodness. One of our best-selling dishes</div>
               </div>
-              <div className="featured-price">2200.00</div>
             </div>
           </article>
           <article
@@ -139,7 +138,6 @@ export default function Home() {
                 <div className="featured-name">Pepper Pork</div>
                 <div className="muted">Juicy pork, fiery pepper, irresistible flavor.</div>
               </div>
-              <div className="featured-price">2500.00</div>
             </div>
           </article>
           <article
@@ -151,7 +149,6 @@ export default function Home() {
                 <div className="featured-name">Signature Fried Handallo</div>
                 <div className="muted">Crunchy, flavorful handallo with island spice.</div>
               </div>
-              <div className="featured-price">1800.00</div>
             </div>
           </article>
           <article
@@ -163,7 +160,6 @@ export default function Home() {
                 <div className="featured-name">Sensasia Special Rice</div>
                 <div className="muted">Hearty mixed meat rice, bursting with flavor in every bite.</div>
               </div>
-              <div className="featured-price">2000.00</div>
             </div>
           </article>
         </div>

@@ -22,7 +22,7 @@ export default function Navbar() {
           />
           <div className="brand-text">
             <div className="brand-title">Sensasia Restaurant</div>
-            <div className="brand-sub">Asian Fusion & Cocktails — Since 2012</div>
+            <div className="brand-sub">Authentic Asian Fusion Cuisine — Since 2012</div>
           </div>
         </div>
 
