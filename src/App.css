@@ -842,6 +842,11 @@ body{
 
 /* Contact Page  */
 .contact-cards {
+  background: linear-gradient(
+    180deg,
+    rgba(41, 0, 0, 0.85),  /* deep crimson top */
+    rgba(29, 0, 0, 0.95)   /* darker bottom for depth */
+  );
   display: flex;
   flex-wrap: wrap;
   gap:28px;
