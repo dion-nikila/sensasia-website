@@ -750,6 +750,22 @@ body{
   }
 }
 
+.menu-link {
+  display: inline-block;
+  background: #8b0f0f;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.menu-link:hover {
+  background: #a31212;
+}
+
+
 
 
 /* About Section */
