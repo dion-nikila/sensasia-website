@@ -1042,3 +1042,53 @@ body{
     max-height: 200px;
   }
 }
+
+/* ================= SNOW EFFECT ================= */
+.snow-container {
+  pointer-events: none; /* IMPORTANT: no click blocking */
+  position: fixed;
+  inset: 0;
+  z-index: 999; /* above content, below modals */
+  overflow: hidden;
+}
+
+.snowflake {
+  position: absolute;
+  top: -10px;
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  filter: blur(0.5px);
+  animation: snow-fall linear infinite;
+  opacity: 0.8;
+}
+
+/* Random positions + speeds */
+.snowflake:nth-child(odd) {
+  width: 4px;
+  height: 4px;
+  opacity: 0.6;
+}
+
+@keyframes snow-fall {
+  from {
+    transform: translateY(-10px);
+  }
+  to {
+    transform: translateY(110vh);
+  }
+}
+
+/* Randomize */
+.snowflake {
+  left: calc(100% * var(--x));
+  animation-duration: calc(8s + 10s * var(--d));
+  animation-delay: calc(-10s * var(--d));
+}
+
+/* Generate randomness */
+.snowflake:nth-child(n) {
+  --x: calc(random() * 1);
+  --d: calc(random() * 1);
+}

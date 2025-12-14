@@ -8,12 +8,13 @@ import Contact from "./Contact";
 import Footer from "./Footer";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-
+import Snow from './Snow';
 
 export default function App() {
   return (
     <div className="app-root">
       <Navbar />
+      <Snow/>
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
