@@ -14,7 +14,6 @@ export default function App() {
   return (
     <div className="app-root">
       <Navbar />
-      <Snow/>
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
