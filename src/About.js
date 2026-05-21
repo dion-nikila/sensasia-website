@@ -25,7 +25,7 @@ const About = () => {
     <section className="about-section container">
       {/* Hero */}
       <div className="about-hero">
-        <h1>About Senssia</h1>
+        <h1>About Sensasia</h1>
         <p className="about-subtitle">
           Serving authentic Asian fusion cuisine since 2012
         </p>
@@ -34,13 +34,13 @@ const About = () => {
       {/* Story */}
       <div className="about-content">
         <p>
-          Senssia combines exquisite flavors, elegant ambiance, and a passion
+          Sensasia combines exquisite flavors, elegant ambiance, and a passion
           for culinary artistry. Each dish is crafted with love and precision,
           and our cocktails are designed to delight.
         </p>
         <p>
           Join us for a memorable experience — whether it's a casual dinner, a
-          special celebration, or a night out with friends, Senssia is your
+          special celebration, or a night out with friends, Sensasia is your
           destination for unforgettable moments.
         </p>
       </div>

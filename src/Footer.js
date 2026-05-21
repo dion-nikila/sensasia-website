@@ -11,7 +11,7 @@ export default function Footer() {
           <p><FaMapMarkerAlt className="icon" /> Ragama, Sri Lanka</p>
           <p>
             <FaPhone className="icon" />{" "}
-            <a href="tel:+94112223344">+94 11 222 3344</a>
+            <a href="tel:0112957700">0112 957 700</a>
           </p>
           <p><FaClock className="icon" /> Open Daily: 10 AM – Midnight</p>
         </div>

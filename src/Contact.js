@@ -1,5 +1,5 @@
 import React from "react";
-import { FaPhoneAlt, FaUtensils, FaMapMarkerAlt } from "react-icons/fa";
+import { FaArrowRight, FaMapMarkerAlt, FaPhoneAlt, FaRegCalendarCheck, FaUtensils } from "react-icons/fa";
 
 export default function Contact() {
   return (
@@ -9,10 +9,10 @@ export default function Contact() {
       <div className="contact-cards">
         {/* Phone / Reservations */}
         <div className="contact-card">
-          <FaPhoneAlt className="contact-icon" />
+          <FaRegCalendarCheck className="contact-icon" />
           <h3>Call to Reserve</h3>
           <p>We accept reservations for tables and private events. For large groups, please call ahead.</p>
-          <a className="btn btn-primary-hero" href="tel:0112957700">0112 957 700</a>
+          <a className="btn btn-primary-hero" href="tel:0112957700"><FaPhoneAlt /> 0112 957 700</a>
         </div>
 
         {/* Online Ordering */}
@@ -20,7 +20,7 @@ export default function Contact() {
           <FaUtensils className="contact-icon" />
           <h3>Order Online</h3>
           <p>Enjoy our dishes from the comfort of your home via Uber Eats.</p>
-          <a className="btn btn-outline" href="https://www.ubereats.com/lk/store/sensasia-restaurant-ragama/xSqQwTKNRIS7aBF5YRel2g" target="_blank" rel="noreferrer">Order Now</a>
+          <a className="btn btn-outline" href="https://www.ubereats.com/lk/store/sensasia-restaurant-ragama/xSqQwTKNRIS7aBF5YRel2g" target="_blank" rel="noreferrer">Order Now <FaArrowRight /></a>
         </div>
 
         {/* Location */}

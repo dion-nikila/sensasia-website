@@ -1,8 +1,98 @@
 import React, { useState } from "react";
-import { FaGem, FaUtensils, FaMusic, FaCocktail, FaGlassCheers } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import {
+  FaArrowRight,
+  FaCalendarDay,
+  FaConciergeBell,
+  FaGlassCheers,
+  FaGuitar,
+  FaMapMarkerAlt,
+  FaMicrophoneAlt,
+  FaMoon,
+  FaMusic,
+  FaRegClock,
+  FaStar,
+  FaUtensils,
+  FaWineGlassAlt,
+} from "react-icons/fa";
 
 export default function Home() {
   const [modal, setModal] = useState(null);
+
+  const events = [
+    {
+      day: "Wednesday",
+      title: "Karaoke Night",
+      time: "Open mic • 7:30 PM",
+      note: "Warm up the week with dinner, drinks, and a table that turns into a stage.",
+      Icon: FaMicrophoneAlt,
+    },
+    {
+      day: "Friday",
+      title: "Live Band",
+      time: "Band • 7:30 PM",
+      note: "A proper Friday mood: plates on the table, glasses raised, live sound in the room.",
+      Icon: FaGuitar,
+    },
+    {
+      day: "Saturday",
+      title: "Live Music",
+      time: "8:00 PM",
+      note: "Weekend dinner energy with live music, cocktails, and a room that stays alive.",
+      Icon: FaMusic,
+    },
+  ];
+
+  const dishes = [
+    {
+      name: "Cheese Kottu",
+      desc: "1kg portion of creamy goodness. One of our best-selling dishes.",
+      img: "/images/food1.jpg",
+    },
+    {
+      name: "Pepper Pork",
+      desc: "Juicy pork, fiery pepper, irresistible flavor.",
+      img: "/images/food2.jpg",
+    },
+    {
+      name: "Signature Fried Handallo",
+      desc: "Crunchy, flavorful handallo with island spice.",
+      img: "/images/food3.jpg",
+    },
+    {
+      name: "Sensasia Special Rice",
+      desc: "Hearty mixed meat rice, bursting with flavor in every bite.",
+      img: "/images/food4.jpg",
+    },
+  ];
+
+  const amenities = [
+    {
+      Icon: FaMoon,
+      title: "Warm Dining Ambience",
+      desc: "Low light, intimate tables, and a room that feels good after dark.",
+    },
+    {
+      Icon: FaConciergeBell,
+      title: "Asian Fusion Signatures",
+      desc: "Comforting favorites sharpened with Sensasia’s spice, texture, and technique.",
+    },
+    {
+      Icon: FaWineGlassAlt,
+      title: "Cocktails & Bar Nights",
+      desc: "Balanced classics and colorful house pours built around the evening.",
+    },
+    {
+      Icon: FaMusic,
+      title: "Weekly Live Energy",
+      desc: "Karaoke, live bands, and live music nights without losing the dinner mood.",
+    },
+    {
+      Icon: FaGlassCheers,
+      title: "Gatherings That Flow",
+      desc: "Family dinners, dates, birthdays, and friends who stay for one more round.",
+    },
+  ];
 
   const spotlightDetails = {
     food: {
@@ -24,8 +114,11 @@ export default function Home() {
         className="hero hero-tinted"
         style={{ backgroundImage: "url('/images/hero-bg.jpg')" }}
       >
+        <div className="hero-corner hero-corner-top" />
+        <div className="hero-corner hero-corner-bottom" />
         <div className="hero-inner container" role="banner" style={{ zIndex: 2 }}>
           <div className="hero-content">
+            <div className="hero-pretitle">Asian Fusion • Cocktail Bar • Since 2012</div>
             <h1 className="hero-heading">Authentic Asian Fusion Cuisine</h1>
             <p className="hero-sub">Since 2012</p>
 
@@ -38,38 +131,62 @@ export default function Home() {
               >
                 Order Online — Uber Eats
               </a>
-              <a className="btn-secondary-hero" href="/menu">
-                  View Menu
-              </a>
+              <Link className="btn-secondary-hero" to="/menu">
+                View Menu
+              </Link>
 
             </div>
             <p className="hero-paragraph muted" style={{ marginTop: 16 }}>
               A refined take on Asian classics. seasonal ingredients, craft cocktails,
               and warm evenings. Only the best times with family, friends and everyone in between. 
             </p>
+            <div className="hero-micro-grid" aria-label="Quick Sensasia highlights">
+              <span><FaMapMarkerAlt /> Ragama</span>
+              <span><FaRegClock /> Open daily</span>
+              <span><FaStar /> Live nights</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mobile-experience-strip container" aria-label="Sensasia experience">
+        <div className="experience-copy">
+          <span>Start here</span>
+          <h2>Dinner, drinks, and live nights in one room.</h2>
+        </div>
+        <div className="experience-points">
+          <div>
+            <strong>Reserve</strong>
+            <p>Call ahead for tables and gatherings.</p>
+          </div>
+          <div>
+            <strong>Order</strong>
+            <p>Browse food, drinks, and Uber Eats.</p>
+          </div>
+          <div>
+            <strong>Stay</strong>
+            <p>Karaoke, live bands, and live music nights.</p>
           </div>
         </div>
       </section>
 
       {/* WEEKLY LINEUP */}
-      <section className="section schedule container">
+      <section className="section schedule container flow-section home-art-section">
+        <div className="section-overline"><FaCalendarDay /> Weekly Lineup</div>
         <h2 className="section-title">Our week at Sensasia</h2>
         <p className="muted section-lead">At Sensasia, every night is special. Discover our regular evenings filled with flavor and rhythm.</p>
 
         <div className="large-schedule-grid">
-          {[
-            { day: "Wednesday", title: "Karaoke Night", time: "Open mic • 7:30 PM" },
-            { day: "Friday", title: "Live Band", time: "Band 7:30 PM" },
-            { day: "Saturday", title: "Calypso Night", time: "8:00 PM" },
-          ].map((event, idx) => (
+          {events.map((event, idx) => (
             <div className="event-card" key={idx}>
-              <div className="event-icon"><FaMusic /></div>
+              <div className="event-icon"><event.Icon /></div>
               <div className="event-info">
                 <div className="event-day">{event.day}</div>
                 <div className="event-title">{event.title}</div>
                 <div className="event-time muted">{event.time}</div>
+                <p className="event-note">{event.note}</p>
                 <a href="tel:0112957700" className="btn btn-outline small-btn">
-                  Reserve Now
+                  Reserve Now <FaArrowRight />
                 </a>
               </div>
             </div>
@@ -78,12 +195,25 @@ export default function Home() {
       </section>
 
       {/* SPOTLIGHTS */}
-      <section className="section spotlights container">
+      <section className="section spotlights container flow-section home-art-section">
+        <div className="section-overline"><FaStar /> House Specials</div>
+        <div className="art-section-title-row">
+          <h2 className="section-title">Two reasons to lean in.</h2>
+          <p className="muted section-lead">A creamy house favorite from the kitchen and a blue-lit cocktail from the bar.</p>
+        </div>
         <div className="spotlights-grid">
           <article
             className="spotlight-card tinted clickable"
             style={{ backgroundImage: "url('/images/spotlight.jpg')" }}
             onClick={() => setModal("food")}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                setModal("food");
+              }
+            }}
+            role="button"
+            tabIndex={0}
           >
             <div className="spotlight-inner" style={{ zIndex: 2 }}>
               <div className="spotlight-label">Spotlight</div>
@@ -91,6 +221,7 @@ export default function Home() {
               <div className="spotlight-desc muted">
                 Creamy Cheese Sauce · Fresh Peeled Prawns
               </div>
+              <span className="card-cue">Tap to view details <FaArrowRight /></span>
             </div>
           </article>
 
@@ -98,6 +229,14 @@ export default function Home() {
             className="spotlight-card tinted clickable"
             style={{ backgroundImage: "url('/images/bar-special.jpg')" }}
             onClick={() => setModal("drink")}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                setModal("drink");
+              }
+            }}
+            role="button"
+            tabIndex={0}
           >
             <div className="spotlight-inner" style={{ zIndex: 2 }}>
               <div className="spotlight-label">Bar Special</div>
@@ -105,104 +244,57 @@ export default function Home() {
               <div className="spotlight-desc muted">
                 Rum · Vodka · Citrus · Honey · Blue Curaçao
               </div>
+              <span className="card-cue">Tap to view details <FaArrowRight /></span>
             </div>
           </article>
         </div>
       </section>
 
       {/* FEATURED */}
-      <section className="section featured container">
+      <section className="section featured container flow-section home-art-section featured-art">
+        <div className="section-overline"><FaUtensils /> From the Kitchen</div>
         <h2 className="section-title">Featured Highlights</h2>
         <p className="muted section-lead">
           A handpicked selection of our most-loved dishes, prepared with care and flavor in every detail.
         </p>
 
         <div className="featured-grid">
-          <article
-            className="featured-card tinted"
-            style={{ backgroundImage: "url('/images/food1.jpg')" }}
-          >
-            <div className="featured-meta" style={{ zIndex: 2 }}>
-              <div>
-                <div className="featured-name">Cheese Kottu</div>
-                <div className="muted">1kg Portion of creamy goodness. One of our best-selling dishes</div>
+          {dishes.map((dish, index) => (
+            <article
+              className="featured-card tinted"
+              style={{ backgroundImage: `url('${dish.img}')` }}
+              key={dish.name}
+            >
+              <span className="dish-index">{String(index + 1).padStart(2, "0")}</span>
+              <div className="featured-meta" style={{ zIndex: 2 }}>
+                <div>
+                  <div className="featured-name">{dish.name}</div>
+                  <div className="muted">{dish.desc}</div>
+                </div>
+                <FaArrowRight className="dish-arrow" />
               </div>
-            </div>
-          </article>
-          <article
-            className="featured-card tinted"
-            style={{ backgroundImage: "url('/images/food2.jpg')" }}
-          >
-            <div className="featured-meta" style={{ zIndex: 2 }}>
-              <div>
-                <div className="featured-name">Pepper Pork</div>
-                <div className="muted">Juicy pork, fiery pepper, irresistible flavor.</div>
-              </div>
-            </div>
-          </article>
-          <article
-            className="featured-card tinted"
-            style={{ backgroundImage: "url('/images/food3.jpg')" }}
-          >
-            <div className="featured-meta" style={{ zIndex: 2 }}>
-              <div>
-                <div className="featured-name">Signature Fried Handallo</div>
-                <div className="muted">Crunchy, flavorful handallo with island spice.</div>
-              </div>
-            </div>
-          </article>
-          <article
-            className="featured-card tinted"
-            style={{ backgroundImage: "url('/images/food4.jpg')" }}
-          >
-            <div className="featured-meta" style={{ zIndex: 2 }}>
-              <div>
-                <div className="featured-name">Sensasia Special Rice</div>
-                <div className="muted">Hearty mixed meat rice, bursting with flavor in every bite.</div>
-              </div>
-            </div>
-          </article>
+            </article>
+          ))}
         </div>
       </section>
 
       {/* AMENITIES */}
-      <section className="container amenities-wrap">
-        <div className="amenities-grid">
-          <div className="amenity-card">
-            <div className="amenity-icon"><FaGem /></div>
-            <h4 className="amenity-title">Elegant Ambience</h4>
-            <p className="amenity-desc muted">
-              Warm lighting, classic finishes and an intimate atmosphere perfect for
-              dates and dinners.
-            </p>
+      <section className="container amenities-wrap flow-section home-art-section">
+        <div className="night-flow-panel">
+          <div className="night-flow-intro">
+            <div className="section-overline"><FaMoon /> Why it works</div>
+            <h2 className="section-title">The night has a natural flow.</h2>
+            <p className="muted section-lead">Every detail should feel connected: the table, the plate, the glass, the music, and the people around you.</p>
           </div>
-          <div className="amenity-card">
-            <div className="amenity-icon"><FaUtensils /></div>
-            <h4 className="amenity-title">Chef-Crafted Cuisine</h4>
-            <p className="amenity-desc muted">
-              Thoughtfully sourced ingredients and meticulous technique.
-            </p>
-          </div>
-          <div className="amenity-card">
-            <div className="amenity-icon"><FaMusic /></div>
-            <h4 className="amenity-title">Amazing Live Music</h4>
-            <p className="amenity-desc muted">
-              Weekly performances and carefully curated playlists.
-            </p>
-          </div>
-          <div className="amenity-card">
-            <div className="amenity-icon"><FaCocktail /></div>
-            <h4 className="amenity-title">Best Cocktails in Town</h4>
-            <p className="amenity-desc muted">
-              Bold, balanced and inventive bar program.
-            </p>
-          </div>
-          <div className="amenity-card">
-            <div className="amenity-icon"><FaGlassCheers /></div>
-            <h4 className="amenity-title">A Drink for Every Occasion</h4>
-            <p className="amenity-desc muted">
-              From mocktails to champagne — we’ve got you covered.
-            </p>
+          <div className="amenities-grid">
+            {amenities.map(({ Icon, title, desc }, index) => (
+              <div className="amenity-card" key={title}>
+                <span className="amenity-count">{String(index + 1).padStart(2, "0")}</span>
+                <div className="amenity-icon"><Icon /></div>
+                <h4 className="amenity-title">{title}</h4>
+                <p className="amenity-desc muted">{desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

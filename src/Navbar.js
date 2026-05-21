@@ -29,12 +29,17 @@ export default function Navbar() {
         </div>
 
         {/* Hamburger for mobile */}
-        <div
+        <button
+          type="button"
           className="nav-toggle"
+          aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={mobileOpen}
           onClick={() => setMobileOpen(!mobileOpen)}
         >
-          &#9776;
-        </div>
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+        </button>
 
         {/* Navigation Links */}
         <nav className={`links ${mobileOpen ? "active" : ""}`} aria-label="Main navigation">
