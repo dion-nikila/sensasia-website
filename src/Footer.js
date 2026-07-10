@@ -15,7 +15,7 @@ export default function Footer() {
         <div className="footer-logo">{SITE_NAME}</div>
 
         <div className="footer-info">
-          <p><FaMapMarkerAlt className="icon" /> Ragama, Sri Lanka</p>
+          <p><FaMapMarkerAlt className="icon" /> Peralanda Road, Ragama 11010</p>
           <p>
             <FaPhone className="icon" />{" "}
             <a href={`tel:${PHONE_TEL}`}>{PHONE_DISPLAY}</a>

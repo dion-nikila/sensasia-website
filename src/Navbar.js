@@ -28,8 +28,8 @@ export default function Navbar() {
           />
         </Link> 
           <div className="brand-text">
-            <div className="brand-title">Sensasia Restaurant</div>
-            <div className="brand-sub">Cocktails & Asian Cuisine</div>
+            <div className="brand-title">Sensasia</div>
+            <div className="brand-sub">Restaurant · Bar · Ragama</div>
           </div>
         </div>
 

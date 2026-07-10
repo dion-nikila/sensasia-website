@@ -12,9 +12,9 @@ import {
 const ROUTE_SEO = {
   "/": {
     title:
-      "Sensasia Restaurant and Bar | Asian Fusion Cuisine & Cocktails in Ragama, Sri Lanka",
+      "Sensasia Restaurant & Bar | Peralanda, Ragama",
     description:
-      "Sensasia Restaurant and Bar in Ragama, Sri Lanka offers Asian fusion cuisine, craft cocktails, karaoke nights, and live music daily.",
+      "Asian fusion restaurant and pub bar on Peralanda Road, Ragama. Enjoy cocktails, dinner, karaoke, live bands and live music at Sensasia.",
     image: "/images/hero-bg.jpg",
   },
   "/menu": {
@@ -75,8 +75,11 @@ function setJsonLd(path) {
 
   const schema = {
     "@context": "https://schema.org",
-    "@type": "Restaurant",
+    "@type": ["Restaurant", "BarOrPub"],
+    "@id": `${absoluteUrl("/")}#restaurant`,
     name: SITE_NAME,
+    description:
+      "Asian fusion restaurant and pub bar on Peralanda Road in Ragama with cocktails, karaoke, live bands and live music.",
     image: [
       absoluteUrl("/images/hero-bg.jpg"),
       absoluteUrl("/images/spotlight.jpg"),
@@ -87,10 +90,13 @@ function setJsonLd(path) {
       ...ADDRESS,
     },
     telephone: PHONE_SCHEMA,
-    servesCuisine: ["Asian Fusion", "Sri Lankan", "Cocktail Bar"],
+    servesCuisine: ["Asian Fusion", "Sri Lankan", "Seafood"],
     priceRange: "$$",
     url: absoluteUrl("/"),
     hasMap: MAP_LINK_URL,
+    menu: absoluteUrl("/menu"),
+    acceptsReservations: true,
+    paymentAccepted: "Cash, Credit Card",
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
