@@ -1,13 +1,32 @@
 import React from "react";
 import Slider from "react-slick";
+import ResponsiveImage from "./ResponsiveImage";
 
 const images = [
-  "/images/about1.jpg",
-  "/images/about2.jpg",
-  "/images/about3.jpg",
-  "/images/about4.jpg",
-  "/images/about5.jpg",
-  "/images/about6.jpg",
+  {
+    src: "/images/about1.jpg",
+    alt: "Sensasia Restaurant and Bar dining room in Ragama",
+  },
+  {
+    src: "/images/about2.jpg",
+    alt: "Warm interior details at Sensasia Restaurant and Bar",
+  },
+  {
+    src: "/images/about3.jpg",
+    alt: "Sensasia restaurant seating prepared for guests",
+  },
+  {
+    src: "/images/about4.jpg",
+    alt: "Asian fusion restaurant ambience at Sensasia",
+  },
+  {
+    src: "/images/about5.jpg",
+    alt: "Sensasia bar and dining atmosphere",
+  },
+  {
+    src: "/images/about6.jpg",
+    alt: "Sensasia Restaurant and Bar evening setting",
+  },
 ]; 
 const About = () => {
   const settings = {
@@ -27,7 +46,7 @@ const About = () => {
       <div className="about-hero">
         <h1>About Sensasia</h1>
         <p className="about-subtitle">
-          Serving authentic Asian fusion cuisine since 2012
+          Serving authentic Asian fusion cuisine in Ragama since 2012
         </p>
       </div>
 
@@ -36,7 +55,8 @@ const About = () => {
         <p>
           Sensasia combines exquisite flavors, elegant ambiance, and a passion
           for culinary artistry. Each dish is crafted with love and precision,
-          and our cocktails are designed to delight.
+          and our cocktails are designed to delight guests looking for a
+          restaurant in Ragama with a proper night-out mood.
         </p>
         <p>
           Join us for a memorable experience — whether it's a casual dinner, a
@@ -48,9 +68,15 @@ const About = () => {
       {/* Gallery */}
       <div className="about-gallery">
         <Slider {...settings}>
-          {images.map((img, index) => (
+          {images.map((image, index) => (
             <div key={index}>
-              <img src={img} alt={`Gallery ${index + 1}`} />
+              <ResponsiveImage
+                src={image.src}
+                alt={image.alt}
+                className="about-gallery-image"
+                sizes="(max-width: 700px) 100vw, 80vw"
+                loading={index === 0 ? "eager" : "lazy"}
+              />
             </div>
           ))}
         </Slider>

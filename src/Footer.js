@@ -1,33 +1,42 @@
 import React from "react";
 import { FaFacebookF, FaInstagram, FaPhone, FaMapMarkerAlt, FaClock } from "react-icons/fa";
+import {
+  FACEBOOK_URL,
+  INSTAGRAM_URL,
+  PHONE_DISPLAY,
+  PHONE_TEL,
+  SITE_NAME,
+} from "./siteConfig";
 
 export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer-inner">
-        <h2 className="footer-logo">Sensasia Restaurant and Bar</h2>
+        <div className="footer-logo">{SITE_NAME}</div>
 
         <div className="footer-info">
           <p><FaMapMarkerAlt className="icon" /> Ragama, Sri Lanka</p>
           <p>
             <FaPhone className="icon" />{" "}
-            <a href="tel:0112957700">0112 957 700</a>
+            <a href={`tel:${PHONE_TEL}`}>{PHONE_DISPLAY}</a>
           </p>
           <p><FaClock className="icon" /> Open Daily: 10 AM – Midnight</p>
         </div>
 
         <div className="footer-socials">
           <a
-            href="https://www.facebook.com/sens.asia"
+            href={FACEBOOK_URL}
             target="_blank"
             rel="noreferrer"
+            aria-label="Sensasia on Facebook"
           >
             <FaFacebookF />
           </a>
           <a
-            href="https://www.instagram.com/sensasia.restaurant/?hl=en"
+            href={INSTAGRAM_URL}
             target="_blank"
             rel="noreferrer"
+            aria-label="Sensasia on Instagram"
           >
             <FaInstagram />
           </a>

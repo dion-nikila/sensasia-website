@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import ResponsiveImage from "./ResponsiveImage";
+import { UBER_EATS_URL } from "./siteConfig";
 
 export default function Navbar() {
   const loc = useLocation();
@@ -16,10 +18,13 @@ export default function Navbar() {
         {/* Brand Logo + Text */}
         <div className="brand">
         <Link className={loc.pathname === "/" ? "active" : ""} to="/">
-          <img
+          <ResponsiveImage
             src="/images/logo.jpg"
             alt="Sensasia Logo"
-            className="brand-logo"
+            className="brand-logo-picture"
+            imageClassName="brand-logo"
+            sizes="52px"
+            loading="eager"
           />
         </Link> 
           <div className="brand-text">
@@ -50,7 +55,7 @@ export default function Navbar() {
 
           <a
             className="nav-order"
-            href="https://www.ubereats.com/lk/store/sensasia-restaurant-ragama/xSqQwTKNRIS7aBF5YRel2g"
+            href={UBER_EATS_URL}
             target="_blank"
             rel="noreferrer"
           >

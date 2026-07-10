@@ -1,8 +1,18 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+jest.mock('react-router-dom', () => {
+  const React = require('react');
+  return {
+    Link: ({ children, to, ...props }) => <a href={to} {...props}>{children}</a>,
+    NavLink: ({ children, to, end, ...props }) => <a href={to} {...props}>{children}</a>,
+    Route: ({ element }) => element,
+    Routes: ({ children }) => <>{children}</>,
+    useLocation: () => ({ pathname: '/' }),
+  };
+}, { virtual: true });
+
+test('renders Sensasia homepage', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: /authentic asian fusion cuisine/i })).toBeInTheDocument();
 });

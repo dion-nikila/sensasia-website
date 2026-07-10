@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   FaArrowRight,
@@ -15,9 +15,24 @@ import {
   FaUtensils,
   FaWineGlassAlt,
 } from "react-icons/fa";
+import MapEmbed from "./MapEmbed";
+import ResponsiveImage from "./ResponsiveImage";
+import { PHONE_TEL, UBER_EATS_URL } from "./siteConfig";
 
 export default function Home() {
   const [modal, setModal] = useState(null);
+  const [now, setNow] = useState(() => new Date());
+
+  useEffect(() => {
+    const interval = window.setInterval(() => setNow(new Date()), 60_000);
+    return () => window.clearInterval(interval);
+  }, []);
+
+  const hour = now.getHours();
+  const isOpen = hour >= 10;
+  const serviceStatus = isOpen
+    ? "Open now · closes midnight"
+    : "Closed · opens 10am";
 
   const events = [
     {
@@ -48,21 +63,25 @@ export default function Home() {
       name: "Cheese Kottu",
       desc: "1kg portion of creamy goodness. One of our best-selling dishes.",
       img: "/images/food1.jpg",
+      alt: "Cheese kottu served at Sensasia Restaurant and Bar",
     },
     {
       name: "Pepper Pork",
       desc: "Juicy pork, fiery pepper, irresistible flavor.",
       img: "/images/food2.jpg",
+      alt: "Pepper pork dish from Sensasia's Asian fusion kitchen",
     },
     {
       name: "Signature Fried Handallo",
       desc: "Crunchy, flavorful handallo with island spice.",
       img: "/images/food3.jpg",
+      alt: "Signature fried handallo with crisp texture and island spice",
     },
     {
       name: "Sensasia Special Rice",
       desc: "Hearty mixed meat rice, bursting with flavor in every bite.",
       img: "/images/food4.jpg",
+      alt: "Sensasia special rice served for sharing",
     },
   ];
 
@@ -99,11 +118,13 @@ export default function Home() {
       title: "Sensasia’s Special — Creamy Prawn",
       desc: "Juicy prawns tossed in our signature creamy sauce · rich, savory, and mildly spiced with Asian flavors.",
       img: "/images/spotlight.jpg",
+      alt: "Creamy prawn house special at Sensasia Restaurant and Bar",
     },
     drink: {
       title: "Blue Margarita",
       desc: "A vibrant Rum and Vodka based cocktail · blue curaçao · lime juice · perfectly chilled with a citrus kick.",
       img: "/images/bar-special.jpg",
+      alt: "Blue Margarita cocktail from the Sensasia bar",
     },
   };
 
@@ -112,20 +133,29 @@ export default function Home() {
       {/* HERO */}
       <section
         className="hero hero-tinted"
-        style={{ backgroundImage: "url('/images/hero-bg.jpg')" }}
+        aria-label="Sensasia Restaurant and Bar dining room in Ragama"
       >
-        <div className="hero-corner hero-corner-top" />
-        <div className="hero-corner hero-corner-bottom" />
+        <ResponsiveImage
+          src="/images/hero-bg.jpg"
+          alt=""
+          className="hero-bg"
+          sizes="100vw"
+          loading="eager"
+          fetchPriority="high"
+        />
         <div className="hero-inner container" role="banner" style={{ zIndex: 2 }}>
           <div className="hero-content">
-            <div className="hero-pretitle">Asian Fusion • Cocktail Bar • Since 2012</div>
+            <div className="hero-pretitle">Asian Fusion · Cocktail Bar · Ragama · Since 2012</div>
+            <div className="hero-status" role="status" aria-live="polite">
+              <span className={isOpen ? "hero-status-dot is-open" : "hero-status-dot"} />
+              {serviceStatus}
+            </div>
             <h1 className="hero-heading">Authentic Asian Fusion Cuisine</h1>
-            <p className="hero-sub">Since 2012</p>
 
             <div className="hero-actions">
               <a
                 className="btn btn-primary-hero"
-                href="https://www.ubereats.com/lk/store/sensasia-restaurant-ragama/xSqQwTKNRIS7aBF5YRel2g"
+                href={UBER_EATS_URL}
                 target="_blank"
                 rel="noreferrer"
               >
@@ -137,8 +167,8 @@ export default function Home() {
 
             </div>
             <p className="hero-paragraph muted" style={{ marginTop: 16 }}>
-              A refined take on Asian classics. seasonal ingredients, craft cocktails,
-              and warm evenings. Only the best times with family, friends and everyone in between. 
+              A refined restaurant and bar in Ragama for Asian fusion Sri Lanka flavors,
+              seasonal ingredients, craft cocktails, and warm evenings with family and friends.
             </p>
             <div className="hero-micro-grid" aria-label="Quick Sensasia highlights">
               <span><FaMapMarkerAlt /> Ragama</span>
@@ -149,24 +179,22 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mobile-experience-strip container" aria-label="Sensasia experience">
-        <div className="experience-copy">
+      <section className="experience-strip container flow-section" aria-label="Sensasia experience">
+        <div className="experience-item experience-item-main">
           <span>Start here</span>
           <h2>Dinner, drinks, and live nights in one room.</h2>
         </div>
-        <div className="experience-points">
-          <div>
-            <strong>Reserve</strong>
-            <p>Call ahead for tables and gatherings.</p>
-          </div>
-          <div>
-            <strong>Order</strong>
-            <p>Browse food, drinks, and Uber Eats.</p>
-          </div>
-          <div>
-            <strong>Stay</strong>
-            <p>Karaoke, live bands, and live music nights.</p>
-          </div>
+        <div className="experience-item">
+          <strong>Reserve</strong>
+          <p>Call ahead for tables and gatherings.</p>
+        </div>
+        <div className="experience-item">
+          <strong>Order</strong>
+          <p>Browse food, drinks, and Uber Eats.</p>
+        </div>
+        <div className="experience-item">
+          <strong>Stay</strong>
+          <p>Karaoke, live bands, and live music nights.</p>
         </div>
       </section>
 
@@ -185,7 +213,7 @@ export default function Home() {
                 <div className="event-title">{event.title}</div>
                 <div className="event-time muted">{event.time}</div>
                 <p className="event-note">{event.note}</p>
-                <a href="tel:0112957700" className="btn btn-outline small-btn">
+                <a href={`tel:${PHONE_TEL}`} className="btn btn-outline small-btn">
                   Reserve Now <FaArrowRight />
                 </a>
               </div>
@@ -204,7 +232,6 @@ export default function Home() {
         <div className="spotlights-grid">
           <article
             className="spotlight-card tinted clickable"
-            style={{ backgroundImage: "url('/images/spotlight.jpg')" }}
             onClick={() => setModal("food")}
             onKeyDown={(event) => {
               if (event.key === "Enter" || event.key === " ") {
@@ -214,7 +241,14 @@ export default function Home() {
             }}
             role="button"
             tabIndex={0}
+            aria-label="View details for Sensasia's Special Creamy Prawn"
           >
+            <ResponsiveImage
+              src="/images/spotlight.jpg"
+              alt=""
+              className="card-media"
+              sizes="(max-width: 700px) 100vw, 58vw"
+            />
             <div className="spotlight-inner" style={{ zIndex: 2 }}>
               <div className="spotlight-label">Spotlight</div>
               <div className="spotlight-title">Sensasia's Special - Creamy Prawn</div>
@@ -226,8 +260,7 @@ export default function Home() {
           </article>
 
           <article
-            className="spotlight-card tinted clickable"
-            style={{ backgroundImage: "url('/images/bar-special.jpg')" }}
+            className="spotlight-card spotlight-drink tinted clickable"
             onClick={() => setModal("drink")}
             onKeyDown={(event) => {
               if (event.key === "Enter" || event.key === " ") {
@@ -237,7 +270,14 @@ export default function Home() {
             }}
             role="button"
             tabIndex={0}
+            aria-label="View details for the Blue Margarita bar special"
           >
+            <ResponsiveImage
+              src="/images/bar-special.jpg"
+              alt=""
+              className="card-media"
+              sizes="(max-width: 700px) 100vw, 42vw"
+            />
             <div className="spotlight-inner" style={{ zIndex: 2 }}>
               <div className="spotlight-label">Bar Special</div>
               <div className="spotlight-title">Blue Margarita</div>
@@ -259,13 +299,18 @@ export default function Home() {
         </p>
 
         <div className="featured-grid">
-          {dishes.map((dish, index) => (
+          {dishes.map((dish) => (
             <article
               className="featured-card tinted"
-              style={{ backgroundImage: `url('${dish.img}')` }}
               key={dish.name}
+              aria-label={`${dish.name}: ${dish.desc}`}
             >
-              <span className="dish-index">{String(index + 1).padStart(2, "0")}</span>
+              <ResponsiveImage
+                src={dish.img}
+                alt=""
+                className="card-media"
+                sizes="(max-width: 700px) 100vw, (max-width: 1080px) 50vw, 25vw"
+              />
               <div className="featured-meta" style={{ zIndex: 2 }}>
                 <div>
                   <div className="featured-name">{dish.name}</div>
@@ -284,15 +329,16 @@ export default function Home() {
           <div className="night-flow-intro">
             <div className="section-overline"><FaMoon /> Why it works</div>
             <h2 className="section-title">The night has a natural flow.</h2>
-            <p className="muted section-lead">Every detail should feel connected: the table, the plate, the glass, the music, and the people around you.</p>
+            <p className="muted section-lead">Every detail should feel connected: the table, the plate, the glass, the music, and the people around you. It is a bar in Ragama built for dinner that becomes a night out.</p>
           </div>
           <div className="amenities-grid">
-            {amenities.map(({ Icon, title, desc }, index) => (
+            {amenities.map(({ Icon, title, desc }) => (
               <div className="amenity-card" key={title}>
-                <span className="amenity-count">{String(index + 1).padStart(2, "0")}</span>
                 <div className="amenity-icon"><Icon /></div>
-                <h4 className="amenity-title">{title}</h4>
-                <p className="amenity-desc muted">{desc}</p>
+                <div className="amenity-copy">
+                  <h3 className="amenity-title">{title}</h3>
+                  <p className="amenity-desc muted">{desc}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -303,13 +349,7 @@ export default function Home() {
       <section className="section map-contact container">
         <div className="map-block">
           <h3 className="block-title">Find Us</h3>
-          <div className="map-wrap">
-            <iframe
-              title="Sensasia location"
-              src="https://maps.google.com/maps?q=Sensasia%20Restaurant,%20Peralanda%20Road,%20Ragama,%20Sri%20Lanka&hl=en&z=15&output=embed"
-              loading="lazy"
-            />
-          </div>
+          <MapEmbed className="map-wrap" />
         </div>
       </section>
 
@@ -320,7 +360,12 @@ export default function Home() {
             className="modal-content"
             onClick={(e) => e.stopPropagation()}
           >
-            <img src={spotlightDetails[modal].img} alt={spotlightDetails[modal].title} />
+            <ResponsiveImage
+              src={spotlightDetails[modal].img}
+              alt={spotlightDetails[modal].alt}
+              className="modal-image"
+              sizes="520px"
+            />
             <h2>{spotlightDetails[modal].title}</h2>
             <p>{spotlightDetails[modal].desc}</p>
             <button className="btn btn-outline" onClick={() => setModal(null)}>

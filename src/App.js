@@ -7,12 +7,15 @@ import Menu from "./Menu";
 import About from "./About";
 import Contact from "./Contact";
 import Footer from "./Footer";
+import Seo from "./Seo";
+import { PHONE_TEL, UBER_EATS_URL } from "./siteConfig";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
 export default function App() {
   return (
     <div className="app-root">
+      <Seo />
       <Navbar />
       <main>
         <Routes>
@@ -32,12 +35,12 @@ export default function App() {
           <FaUtensils aria-hidden="true" />
           <span>Menu</span>
         </NavLink>
-        <a href="tel:0112957700">
+        <a href={`tel:${PHONE_TEL}`}>
           <FaPhoneAlt aria-hidden="true" />
           <span>Call</span>
         </a>
         <a
-          href="https://www.ubereats.com/lk/store/sensasia-restaurant-ragama/xSqQwTKNRIS7aBF5YRel2g"
+          href={UBER_EATS_URL}
           target="_blank"
           rel="noreferrer"
         >
