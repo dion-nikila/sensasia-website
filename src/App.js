@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { NavLink, Route, Routes } from "react-router-dom";
 import { FaDirections, FaPhoneAlt, FaShoppingBag, FaUtensils } from "react-icons/fa";
 import Navbar from "./Navbar";
@@ -12,6 +12,21 @@ import NotFound from "./NotFound";
 import { SITE } from "./data";
 
 export default function App() {
+  const [dockVisible, setDockVisible] = useState(true);
+  const previousScroll = useRef(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const current = window.scrollY;
+      const nearTop = current < 120;
+      const nearBottom = window.innerHeight + current >= document.documentElement.scrollHeight - 120;
+      setDockVisible(nearTop || nearBottom || current < previousScroll.current - 8);
+      previousScroll.current = current;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <div className="app-root">
       <Seo />
@@ -27,7 +42,7 @@ export default function App() {
         </Routes>
       </div>
       <Footer />
-      <nav className="mobile-dock" aria-label="Quick actions">
+      <nav className={`mobile-dock ${dockVisible ? "is-visible" : "is-hidden"}`} aria-label="Quick actions">
         <NavLink to="/menu"><FaUtensils/><span>Menu</span></NavLink>
         <a href={`tel:${SITE.phoneTel}`}><FaPhoneAlt/><span>Call</span></a>
         <a href={SITE.map} target="_blank" rel="noreferrer"><FaDirections/><span>Directions</span></a>
