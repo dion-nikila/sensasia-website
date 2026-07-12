@@ -7,6 +7,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const toggleRef = useRef(null);
+  const navRef = useRef(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -16,6 +17,7 @@ export default function Navbar() {
   useEffect(() => { setOpen(false); window.scrollTo(0, 0); }, [pathname]);
   useEffect(() => {
     document.body.classList.toggle("menu-open", open);
+    if (open) window.requestAnimationFrame(() => navRef.current?.querySelector("a")?.focus());
     const onKey = (event) => { if (event.key === "Escape") { setOpen(false); toggleRef.current?.focus(); } };
     document.addEventListener("keydown", onKey);
     return () => { document.body.classList.remove("menu-open"); document.removeEventListener("keydown", onKey); };
@@ -30,9 +32,9 @@ export default function Navbar() {
         <button ref={toggleRef} className="nav-toggle" type="button" aria-expanded={open} aria-controls="main-navigation" onClick={() => setOpen(!open)}>
           <span className="sr-only">{open ? "Close" : "Open"} navigation</span><i/><i/>
         </button>
-        <nav id="main-navigation" className={`main-nav ${open ? "is-open" : ""}`} aria-label="Main navigation">
+        <nav ref={navRef} id="main-navigation" className={`main-nav ${open ? "is-open" : ""}`} aria-label="Main navigation">
           <p className="mobile-nav-label">Sensasia · Peralanda Road</p>
-          {NAVIGATION.map(({ label, to }) => <NavLink key={to} to={to} end={to === "/"}>{label}</NavLink>)}
+          {NAVIGATION.map(({ label, to }) => <NavLink key={to} to={to} end={to === "/"} onClick={() => setOpen(false)}>{label}</NavLink>)}
           <a className="button button-small button-wine" href={`tel:${SITE.phoneTel}`}>Reserve a table</a>
           <div className="mobile-nav-meta"><span>Open daily</span><strong>{SITE.hours}</strong></div>
         </nav>

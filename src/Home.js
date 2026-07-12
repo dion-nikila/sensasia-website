@@ -61,7 +61,6 @@ export default function Home() {
       <section className="cocktail-takeover" aria-labelledby="cocktail-heading">
         <ResponsiveImage src="/images/bar-special.jpg" alt="Blue Margarita cocktail at Sensasia in Ragama" className="cocktail-takeover-media" imageClassName="cocktail-takeover-image" sizes="100vw" />
         <div className="cocktail-takeover-shade" />
-        <div className="cocktail-orbit" aria-hidden="true"><span>Shake</span><span>Pour</span><span>Stay</span></div>
         <div className="container cocktail-takeover-inner">
           <div className="cocktail-giant" aria-hidden="true">POUR</div>
           <div className="cocktail-copy">
