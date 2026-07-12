@@ -203,6 +203,7 @@ img{color:transparent}
 .cocktail-takeover{background:var(--night-2)}
 .cocktail-takeover-shade{background:linear-gradient(90deg,color-mix(in srgb,var(--night) 94%,transparent) 0%,color-mix(in srgb,var(--night) 50%,transparent) 55%,color-mix(in srgb,var(--night) 12%,transparent)),linear-gradient(0deg,color-mix(in srgb,var(--night) 88%,transparent),transparent 55%)}
 .screen-image{isolation:isolate}
+.screen-section{scroll-margin-top:calc(var(--header) + 1rem)}
 .screen-image-shade{display:none}
 .screen-match-image{object-position:center 48%}
 .screen-image>.full-media{display:block;position:absolute;inset:0;width:100%;height:100%;min-height:0}
@@ -210,14 +211,15 @@ img{color:transparent}
 .screen-live-tag i{width:7px;height:7px;border-radius:50%;background:var(--theme-status-open);box-shadow:0 0 0 4px color-mix(in srgb,var(--theme-status-open) 14%,transparent)}
 .screen-cta{width:max-content;margin-top:1.6rem}
 @media(min-width:901px){
-  .screen-section{grid-template-columns:1.05fr .95fr;gap:0;min-height:620px;margin-block:7rem;padding:0;background:var(--night);color:var(--theme-on-dark);box-shadow:var(--shadow)}
-  .screen-image{min-height:620px}
-  .screen-copy{display:flex;flex-direction:column;justify-content:center;padding:4.5rem}
+  .screen-section{grid-template-columns:1.05fr .95fr;align-items:stretch;gap:0;min-height:620px;margin-block:7rem;padding:0;background:var(--night);color:var(--theme-on-dark);box-shadow:var(--shadow)}
+  .screen-image{height:100%;min-height:620px}
+  .screen-copy{display:flex;flex-direction:column;justify-content:center;padding:3.25rem}
   .screen-copy .eyebrow{color:var(--copper)}
-  .screen-copy h2{color:var(--theme-on-dark);font-size:clamp(3.4rem,4.7vw,5.3rem)}
+  .screen-copy h2{color:var(--theme-on-dark);font-size:clamp(3.2rem,4.3vw,4.6rem)}
   .screen-copy>p{color:color-mix(in srgb,var(--theme-on-dark) 70%,transparent)}
   .screen-copy .night-steps,.screen-copy .night-steps span{border-color:var(--line-light)}
   .screen-copy .night-steps span{color:var(--theme-on-dark)}
+  .screen-copy .night-steps span{padding:.75rem 0}
 }
 @media(max-width:700px){
   .main-nav{background:radial-gradient(circle at 100% 100%,color-mix(in srgb,var(--wine) 28%,transparent),transparent 45%),var(--night)}

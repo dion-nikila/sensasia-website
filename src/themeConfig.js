@@ -10,7 +10,7 @@ export const THEME_NAMES = [
 ];
 
 export const THEME_COLORS = {
-  default: "#0d0c0b",
+  default: "#090807",
   "match-night": "#07150f",
   "karaoke-night": "#180a12",
   "live-music": "#171008",

@@ -13,7 +13,7 @@ import { SITE } from "./data";
 import { resolveTheme, THEME_COLORS } from "./themeConfig";
 
 export default function App() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   const [theme] = useState(resolveTheme);
   const [dockVisible, setDockVisible] = useState(true);
   const previousScroll = useRef(0);
@@ -37,8 +37,17 @@ export default function App() {
   }, [theme]);
 
   useEffect(() => {
-    window.requestAnimationFrame(() => document.getElementById("main-content")?.focus({ preventScroll: true }));
-  }, [pathname]);
+    const frame = window.requestAnimationFrame(() => {
+      const target = hash ? document.querySelector(hash) : null;
+      if (target) {
+        const headerOffset = document.querySelector(".site-header")?.getBoundingClientRect().height || 0;
+        window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - headerOffset - 12, behavior: "auto" });
+      } else {
+        document.getElementById("main-content")?.focus({ preventScroll: true });
+      }
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [pathname, hash]);
 
   return (
     <div className="app-root" data-theme={theme}>
