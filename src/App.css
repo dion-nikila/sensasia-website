@@ -177,4 +177,15 @@ html{background:var(--night);overscroll-behavior-y:none}
   .mobile-nav-label{margin-bottom:.65rem}
   .mobile-nav-meta{margin-top:auto;padding-top:1rem}
 }
+img{color:transparent}
+@media(min-width:901px){
+  .section{padding-block:6.5rem}
+  .section-heading{margin-bottom:2.5rem}
+  .experience-card{min-height:440px}
+  .signature{background:transparent}
+  .screen-image,.screen-section .full-media{min-height:520px}
+  .gallery-grid{grid-template-rows:240px 310px}
+  .visit-map{min-height:500px}
+  .visit-panel h2{font-size:clamp(3rem,4.8vw,5.2rem)}
+}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;animation-iteration-count:1!important}}

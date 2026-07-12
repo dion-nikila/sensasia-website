@@ -42,11 +42,20 @@ export default function ResponsiveImage({
   className,
   imageClassName,
   sizes = "100vw",
-  loading = "lazy",
+  loading = "eager",
   fetchPriority,
 }) {
   const widths = WEBP_WIDTHS[src] || [];
   const [width, height] = DIMENSIONS[src] || [];
+
+  const useFallback = (event) => {
+    const image = event.currentTarget;
+    if (image.dataset.fallbackApplied === "true") return;
+    image.dataset.fallbackApplied = "true";
+    image.parentElement?.querySelector("source")?.remove();
+    image.removeAttribute("srcset");
+    image.src = src;
+  };
 
   return (
     <picture className={className}>
@@ -63,6 +72,7 @@ export default function ResponsiveImage({
         fetchPriority={fetchPriority}
         width={width}
         height={height}
+        onError={useFallback}
       />
     </picture>
   );
