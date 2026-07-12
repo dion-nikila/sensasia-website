@@ -10,8 +10,10 @@ import Footer from "./Footer";
 import Seo from "./Seo";
 import NotFound from "./NotFound";
 import { SITE } from "./data";
+import { resolveTheme, THEME_COLORS } from "./themeConfig";
 
 export default function App() {
+  const [theme] = useState(resolveTheme);
   const [dockVisible, setDockVisible] = useState(true);
   const previousScroll = useRef(0);
 
@@ -27,8 +29,14 @@ export default function App() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", THEME_COLORS[theme]);
+    return () => delete document.documentElement.dataset.theme;
+  }, [theme]);
+
   return (
-    <div className="app-root">
+    <div className="app-root" data-theme={theme}>
       <Seo />
       <a className="skip-link" href="#main-content">Skip to content</a>
       <Navbar />

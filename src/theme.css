@@ -1,0 +1,72 @@
+/*
+ * Sensasia theme control surface.
+ * Components consume these semantic tokens through the aliases in App.css.
+ * Add or adjust an event palette here; do not scatter event colors through components.
+ */
+:root,
+[data-theme="default"] {
+  --theme-ink: #15120f;
+  --theme-night: #0d0c0b;
+  --theme-night-soft: #191613;
+  --theme-cream: #f1eadf;
+  --theme-cream-deep: #e5dacb;
+  --theme-paper: #faf6ef;
+  --theme-accent: #9d2430;
+  --theme-accent-strong: #6e111d;
+  --theme-highlight: #c48a58;
+  --theme-attention: #d9f75b;
+  --theme-cocktail: #82e5e7;
+  --theme-muted: #746d64;
+  --theme-on-dark: #fffaf3;
+  --theme-status-open: #d9f75b;
+  --theme-status-closed: #db6262;
+  --theme-radius: 3px;
+}
+
+[data-theme="match-night"] {
+  --theme-ink: #102019;
+  --theme-night: #07150f;
+  --theme-night-soft: #10271c;
+  --theme-cream: #eef1e7;
+  --theme-cream-deep: #dce4d5;
+  --theme-paper: #f7f8f2;
+  --theme-accent: #127a45;
+  --theme-accent-strong: #07542d;
+  --theme-highlight: #e1b84b;
+  --theme-attention: #d8ff55;
+  --theme-cocktail: #83e6c0;
+  --theme-muted: #657269;
+  --theme-status-open: #d8ff55;
+}
+
+[data-theme="karaoke-night"] {
+  --theme-ink: #24151e;
+  --theme-night: #180a12;
+  --theme-night-soft: #2b1120;
+  --theme-cream: #f4e9ee;
+  --theme-cream-deep: #e8d5de;
+  --theme-paper: #fcf6f9;
+  --theme-accent: #b52864;
+  --theme-accent-strong: #7b1642;
+  --theme-highlight: #ed9a66;
+  --theme-attention: #f0ff64;
+  --theme-cocktail: #f1a9d0;
+  --theme-muted: #7a6872;
+  --theme-status-open: #f0ff64;
+}
+
+[data-theme="live-music"] {
+  --theme-ink: #21170f;
+  --theme-night: #171008;
+  --theme-night-soft: #2b1d10;
+  --theme-cream: #f3ead9;
+  --theme-cream-deep: #e5d5bc;
+  --theme-paper: #fbf5e9;
+  --theme-accent: #a43d21;
+  --theme-accent-strong: #6f2615;
+  --theme-highlight: #d99a45;
+  --theme-attention: #e8f45b;
+  --theme-cocktail: #e8bb69;
+  --theme-muted: #766a5d;
+  --theme-status-open: #e8f45b;
+}

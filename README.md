@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# Sensasia website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React website for Sensasia Restaurant and Bar in Ragama.
 
-## Available Scripts
+## Run locally
 
-In the project directory, you can run:
+```bash
+npm install
+npm start
+```
 
-### `npm start`
+Create a production build with `npm run build` and run the test suite with `npm test -- --watchAll=false`.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Sitewide and event themes
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+All palette controls live in two files:
 
-### `npm test`
+- `src/themeConfig.js` selects the active theme.
+- `src/theme.css` defines semantic colors for each theme.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Available themes:
 
-### `npm run build`
+- `default`
+- `match-night`
+- `karaoke-night`
+- `live-music`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+For a permanent theme, change `ACTIVE_THEME` in `src/themeConfig.js`, or set it during the build:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+REACT_APP_SITE_THEME=match-night npm run build
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Preview any theme without changing the published default:
 
-### `npm run eject`
+```text
+/?theme=match-night
+/?theme=karaoke-night
+/?theme=live-music
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+When creating a new theme, add its name to `THEME_NAMES`, add its browser color to `THEME_COLORS`, then add one `[data-theme="..."]` token block in `src/theme.css`. Components should consume semantic tokens instead of adding event-specific colors to `App.css`.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Content and data
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Business details, external links, navigation, recurring events, menu highlights, and route metadata are centralized in `src/data.js`.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Responsive image behavior and registered image sizes are centralized in `src/ResponsiveImage.js`.
