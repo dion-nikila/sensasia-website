@@ -5,18 +5,18 @@
  */
 :root,
 [data-theme="default"] {
-  --theme-ink: #15120f;
-  --theme-night: #0d0c0b;
-  --theme-night-soft: #191613;
-  --theme-cream: #f1eadf;
-  --theme-cream-deep: #e5dacb;
-  --theme-paper: #faf6ef;
-  --theme-accent: #9d2430;
-  --theme-accent-strong: #6e111d;
-  --theme-highlight: #c48a58;
+  --theme-ink: #17130f;
+  --theme-night: #090807;
+  --theme-night-soft: #15120f;
+  --theme-cream: #ded6ca;
+  --theme-cream-deep: #cec2b3;
+  --theme-paper: #eae3d9;
+  --theme-accent: #a52c35;
+  --theme-accent-strong: #70151e;
+  --theme-highlight: #c98b55;
   --theme-attention: #d9f75b;
   --theme-cocktail: #82e5e7;
-  --theme-muted: #746d64;
+  --theme-muted: #665f57;
   --theme-on-dark: #fffaf3;
   --theme-status-open: #d9f75b;
   --theme-status-closed: #db6262;
