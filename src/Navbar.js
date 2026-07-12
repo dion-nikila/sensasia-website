@@ -1,66 +1,40 @@
-import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import ResponsiveImage from "./ResponsiveImage";
-import { UBER_EATS_URL } from "./siteConfig";
+import React, { useEffect, useRef, useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
+import { NAVIGATION, SITE } from "./data";
 
 export default function Navbar() {
-  const loc = useLocation();
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const { pathname } = useLocation();
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const toggleRef = useRef(null);
 
-  // Close mobile menu when route changes
   useEffect(() => {
-    setMobileOpen(false);
-  }, [loc.pathname]);
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll(); window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  useEffect(() => { setOpen(false); window.scrollTo(0, 0); }, [pathname]);
+  useEffect(() => {
+    document.body.classList.toggle("menu-open", open);
+    const onKey = (event) => { if (event.key === "Escape") { setOpen(false); toggleRef.current?.focus(); } };
+    document.addEventListener("keydown", onKey);
+    return () => { document.body.classList.remove("menu-open"); document.removeEventListener("keydown", onKey); };
+  }, [open]);
 
   return (
-    <header className="nav">
-      <div className="nav-inner container">
-        {/* Brand Logo + Text */}
-        <div className="brand">
-        <Link className={loc.pathname === "/" ? "active" : ""} to="/">
-          <ResponsiveImage
-            src="/images/logo.jpg"
-            alt="Sensasia Logo"
-            className="brand-logo-picture"
-            imageClassName="brand-logo"
-            sizes="52px"
-            loading="eager"
-          />
-        </Link> 
-          <div className="brand-text">
-            <div className="brand-title">Sensasia</div>
-            <div className="brand-sub">Restaurant · Bar · Ragama</div>
-          </div>
-        </div>
-
-        {/* Hamburger for mobile */}
-        <button
-          type="button"
-          className="nav-toggle"
-          aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
-          aria-expanded={mobileOpen}
-          onClick={() => setMobileOpen(!mobileOpen)}
-        >
-          <span aria-hidden="true" />
-          <span aria-hidden="true" />
-          <span aria-hidden="true" />
+    <header className={`site-header ${scrolled || pathname !== "/" ? "is-solid" : ""}`}>
+      <div className="container header-inner">
+        <NavLink className="wordmark" to="/" aria-label="Sensasia home">
+          <strong>Sensasia</strong><span>Restaurant · Bar · Ragama</span>
+        </NavLink>
+        <button ref={toggleRef} className="nav-toggle" type="button" aria-expanded={open} aria-controls="main-navigation" onClick={() => setOpen(!open)}>
+          <span className="sr-only">{open ? "Close" : "Open"} navigation</span><i/><i/>
         </button>
-
-        {/* Navigation Links */}
-        <nav className={`links ${mobileOpen ? "active" : ""}`} aria-label="Main navigation">
-          <Link className={loc.pathname === "/" ? "active" : ""} to="/">Home</Link>
-          <Link className={loc.pathname === "/menu" ? "active" : ""} to="/menu">Menu</Link>
-          <Link className={loc.pathname === "/about" ? "active" : ""} to="/about">About</Link>
-          <Link className={loc.pathname === "/contact" ? "active" : ""} to="/contact">Contact us</Link>
-
-          <a
-            className="nav-order"
-            href={UBER_EATS_URL}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Order Online
-          </a>
+        <nav id="main-navigation" className={`main-nav ${open ? "is-open" : ""}`} aria-label="Main navigation">
+          <p className="mobile-nav-label">Sensasia · Peralanda Road</p>
+          {NAVIGATION.map(({ label, to }) => <NavLink key={to} to={to} end={to === "/"}>{label}</NavLink>)}
+          <a className="button button-small button-wine" href={`tel:${SITE.phoneTel}`}>Reserve a table</a>
+          <div className="mobile-nav-meta"><span>Open daily</span><strong>{SITE.hours}</strong></div>
         </nav>
       </div>
     </header>

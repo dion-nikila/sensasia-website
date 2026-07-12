@@ -1,51 +1,8 @@
 import React from "react";
-import { FaFacebookF, FaInstagram, FaPhone, FaMapMarkerAlt, FaClock } from "react-icons/fa";
-import {
-  FACEBOOK_URL,
-  INSTAGRAM_URL,
-  PHONE_DISPLAY,
-  PHONE_TEL,
-  SITE_NAME,
-} from "./siteConfig";
+import { Link } from "react-router-dom";
+import { FaFacebookF, FaInstagram, FaMapMarkerAlt, FaPhoneAlt, FaRegClock } from "react-icons/fa";
+import { NAVIGATION, SITE } from "./data";
 
 export default function Footer() {
-  return (
-    <footer className="footer">
-      <div className="footer-inner">
-        <div className="footer-logo">{SITE_NAME}</div>
-
-        <div className="footer-info">
-          <p><FaMapMarkerAlt className="icon" /> Peralanda Road, Ragama 11010</p>
-          <p>
-            <FaPhone className="icon" />{" "}
-            <a href={`tel:${PHONE_TEL}`}>{PHONE_DISPLAY}</a>
-          </p>
-          <p><FaClock className="icon" /> Open Daily: 10 AM – Midnight</p>
-        </div>
-
-        <div className="footer-socials">
-          <a
-            href={FACEBOOK_URL}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Sensasia on Facebook"
-          >
-            <FaFacebookF />
-          </a>
-          <a
-            href={INSTAGRAM_URL}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Sensasia on Instagram"
-          >
-            <FaInstagram />
-          </a>
-        </div>
-      </div>
-
-      <div className="footer-bottom">
-        <p>© {new Date().getFullYear()} Sensasia Restaurant</p>
-      </div>
-    </footer>
-  );
+  return <footer className="site-footer"><div className="container footer-grid"><div className="footer-brand"><strong>Sensasia</strong><p>Asian-fusion food, a full bar, big-screen entertainment and weekly live nights on Peralanda Road, Ragama.</p><div className="social-links"><a href={SITE.facebook} target="_blank" rel="noreferrer" aria-label="Sensasia on Facebook"><FaFacebookF/></a><a href={SITE.instagram} target="_blank" rel="noreferrer" aria-label="Sensasia on Instagram"><FaInstagram/></a></div></div><div><h2>Explore</h2>{NAVIGATION.map(({to,label})=><Link key={to} to={to}>{label}</Link>)}<a href={SITE.foodMenu} target="_blank" rel="noreferrer">Food menu PDF</a><a href={SITE.drinksMenu} target="_blank" rel="noreferrer">Drinks menu PDF</a></div><div><h2>Visit</h2><address><span><FaMapMarkerAlt/>{SITE.address}</span><span><FaPhoneAlt/><a href={`tel:${SITE.phoneTel}`}>{SITE.phoneDisplay}</a></span><span><FaRegClock/>Daily · {SITE.hours}</span></address><a className="footer-direction" href={SITE.map} target="_blank" rel="noreferrer">Get directions</a></div></div><div className="container footer-bottom"><span>© {new Date().getFullYear()} {SITE.name}</span><span>Serving Ragama since {SITE.since}</span></div></footer>;
 }

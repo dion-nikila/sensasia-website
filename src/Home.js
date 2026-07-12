@@ -1,285 +1,100 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  FaArrowRight,
-  FaCalendarAlt,
-  FaCheckCircle,
-  FaDirections,
-  FaGuitar,
-  FaMapMarkerAlt,
-  FaMicrophoneAlt,
-  FaMusic,
-  FaPhoneAlt,
-  FaRegClock,
-  FaShoppingBag,
-  FaStar,
-  FaUtensils,
-} from "react-icons/fa";
-import MapEmbed from "./MapEmbed";
+import { FaArrowRight, FaCheck, FaCocktail, FaDirections, FaMapMarkerAlt, FaPhoneAlt, FaRegClock, FaTv } from "react-icons/fa";
 import ResponsiveImage from "./ResponsiveImage";
-import {
-  MAP_LINK_URL,
-  PHONE_DISPLAY,
-  PHONE_TEL,
-  UBER_EATS_URL,
-} from "./siteConfig";
+import MapEmbed from "./MapEmbed";
+import Events from "./Events";
+import { SITE } from "./data";
 
-const EVENTS = [
-  { day: "Wed", title: "Karaoke", time: "From 7:30 PM", Icon: FaMicrophoneAlt },
-  { day: "Fri", title: "Live band", time: "From 7:30 PM", Icon: FaGuitar },
-  { day: "Sat", title: "Live music", time: "From 8:00 PM", Icon: FaMusic },
+const experiences = [
+  { title: "Cocktails & full bar", copy: "Signature cocktails, classics, bottles and the right drink for every kind of night.", image: "/images/bar-special.jpg", link: "/menu", label: "See drinks" },
+  { title: "Asian-fusion food", copy: "House favourites, seafood, rice, kottu and plates made for sharing.", image: "/images/food3.jpg", link: "/menu", label: "Explore food" },
+  { title: "Big-screen moments", copy: "Bring the group, order a round and catch the entertainment on large screens.", image: "/images/about5.jpg" },
+  { title: "Live music & karaoke", copy: "Weekly karaoke, live bands and music that keeps the table around a little longer.", image: "/images/about4.jpg", link: "#whats-on", label: "See the line-up" },
 ];
-
-const DISHES = [
-  {
-    name: "Creamy Prawn",
-    note: "A theatrical house signature, finished tableside.",
-    image: "/images/spotlight.jpg",
-    alt: "Sensasia creamy prawn house special in Peralanda, Ragama",
-    className: "signature-card signature-card-large",
-  },
-  {
-    name: "Sensasia Special Rice",
-    note: "A generous mixed-meat favourite made for sharing.",
-    image: "/images/food4.jpg",
-    alt: "Sensasia special fried rice served in Ragama",
-    className: "signature-card",
-  },
-  {
-    name: "Blue Margarita",
-    note: "Bright citrus, blue curaçao and a proper bar-night mood.",
-    image: "/images/bar-special.jpg",
-    alt: "Blue Margarita cocktail at Sensasia Restaurant and Bar",
-    className: "signature-card",
-  },
+const dishes = [
+  { title: "Creamy Prawn", copy: "A theatrical house signature, finished tableside.", image: "/images/spotlight.jpg" },
+  { title: "Sensasia Special Rice", copy: "A generous mixed-meat favourite made for sharing.", image: "/images/food4.jpg" },
+  { title: "Blue Margarita", copy: "Bright citrus, blue curaçao and a proper bar-night mood.", image: "/images/bar-special.jpg" },
 ];
-
-const FAQS = [
-  {
-    question: "Where is Sensasia Restaurant and Bar?",
-    answer:
-      "We are on Peralanda Road in Ragama, Western Province. Tap Directions for the live Google Maps route.",
-  },
-  {
-    question: "What food does Sensasia serve?",
-    answer:
-      "Our menu centres on Asian fusion and Sri Lankan favourites, with sharing plates, seafood, rice, kottu and a full cocktail bar.",
-  },
-  {
-    question: "Does Sensasia have live entertainment?",
-    answer:
-      "Yes. Our regular line-up includes Wednesday karaoke, a Friday live band and Saturday live music. Schedules can change, so call before travelling for a specific event.",
-  },
+const faqs = [
+  ["Where is Sensasia located?", `Sensasia is on ${SITE.address}. Use the directions link for a live Google Maps route.`],
+  ["What type of food does Sensasia serve?", "The menu centres on Asian-fusion and Sri Lankan favourites, including sharing plates, seafood, rice and kottu."],
+  ["Does Sensasia have live entertainment?", "Yes. The regular line-up includes Wednesday karaoke, a Friday live band and Saturday live music. Call ahead to confirm."],
+  ["Can I reserve a table?", `Yes. Reservations are handled by phone. Call ${SITE.phoneDisplay} to speak with the team.`],
+  ["Can I order for delivery?", "Yes. Online ordering is available through the Sensasia Uber Eats page."],
+  ["What are the opening hours?", `Sensasia is open daily from ${SITE.hours}.`],
 ];
 
 export default function Home() {
-  const [now, setNow] = useState(() => new Date());
-
+  const [open, setOpen] = useState(false);
   useEffect(() => {
-    const interval = window.setInterval(() => setNow(new Date()), 60_000);
-    return () => window.clearInterval(interval);
+    const check = () => { const hour = Number(new Intl.DateTimeFormat("en-GB", { hour: "2-digit", hour12: false, timeZone: "Asia/Colombo" }).format(new Date())); setOpen(hour >= 10 && hour < 24); };
+    check(); const id = setInterval(check, 60000); return () => clearInterval(id);
   }, []);
-
-  const sriLankaHour = Number(
-    new Intl.DateTimeFormat("en-GB", {
-      hour: "2-digit",
-      hour12: false,
-      timeZone: "Asia/Colombo",
-    }).format(now)
-  );
-  const isOpen = sriLankaHour >= 10 && sriLankaHour < 24;
-
   return (
-    <main className="home-revamp">
-      <section className="new-hero" aria-labelledby="home-heading">
-        <ResponsiveImage
-          src="/images/hero-bg.jpg"
-          alt=""
-          className="new-hero-media"
-          imageClassName="new-hero-image"
-          sizes="100vw"
-          loading="eager"
-          fetchPriority="high"
-        />
-        <div className="new-hero-shade" />
-        <div className="new-hero-inner container">
-          <div className="new-hero-copy">
-            <div className="hero-local-label">
-              <FaMapMarkerAlt aria-hidden="true" /> Peralanda Road · Ragama
-            </div>
-            <p className="hero-kicker">Asian fusion restaurant · cocktail bar · since 2012</p>
-            <h1 id="home-heading">
-              Ragama’s spot for{" "}
-              <span>dinner, drinks & live music.</span>
-            </h1>
-            <p className="new-hero-lead">
-              Asian fusion favourites, a full bar and live entertainment on
-              Peralanda Road. Come for dinner. Stay for the night.
-            </p>
-            <div className="new-hero-actions">
-              <Link className="action-button action-button-primary" to="/menu">
-                Explore the menu <FaArrowRight aria-hidden="true" />
-              </Link>
-              <a className="action-button action-button-ghost" href={`tel:${PHONE_TEL}`}>
-                <FaPhoneAlt aria-hidden="true" /> Reserve a table
-              </a>
-            </div>
-            <div className="hero-facts" aria-label="Restaurant details">
-              <span className={isOpen ? "open-pill is-open" : "open-pill"}>
-                <i aria-hidden="true" /> {isOpen ? "Open now · until midnight" : "Opens daily at 10 AM"}
-              </span>
-              <span><FaStar aria-hidden="true" /> Live nights weekly</span>
-            </div>
+    <main>
+      <section className="hero">
+        <ResponsiveImage src="/images/hero-bg.jpg" alt="" className="hero-media" imageClassName="hero-image" sizes="100vw" loading="eager" fetchPriority="high" />
+        <div className="hero-overlay" />
+        <div className="container hero-content">
+          <div className="hero-copy">
+            <p className="eyebrow light">Asian fusion · cocktail bar · live entertainment</p>
+            <h1>Proper cocktails. <em>A better night out</em> in Ragama.</h1>
+            <p className="hero-lead">Start with a drink made properly. Add Asian-fusion favourites, live music, karaoke and the biggest moments on screen.</p>
+            <div className="button-row"><Link className="button button-wine" to="/menu">View the menu <FaArrowRight/></Link><a className="button button-outline" href={`tel:${SITE.phoneTel}`}>Reserve a table <FaPhoneAlt/></a></div>
+            <a className="hero-text-link" href="#whats-on">See what’s on <FaArrowRight/></a>
           </div>
-
-          <aside className="hero-feature-card" aria-label="Sensasia opening information">
-            <span className="feature-number">10</span>
-            <span className="feature-years">AM<br />daily</span>
-            <div className="feature-rule" />
-            <p>Open until midnight.<br />Call ahead for a table.</p>
+          <aside className="hero-utility" aria-label="Venue details">
+            <span className={`status ${open ? "open" : ""}`}><i/>{open ? "Open now" : "Currently closed"}</span>
+            <p><FaRegClock/> Daily · {SITE.hours}</p><p><FaMapMarkerAlt/> Peralanda Road · Ragama</p><p>Established {SITE.since}</p>
           </aside>
+          <a className="mobile-scroll-cue" href="#welcome"><span>Scroll to explore</span><i aria-hidden="true" /></a>
         </div>
       </section>
 
-      <section className="mobile-intent-bar" aria-label="Quick actions">
-        <Link to="/menu"><FaUtensils /> <span>Menu</span></Link>
-        <a href={`tel:${PHONE_TEL}`}><FaPhoneAlt /> <span>Call</span></a>
-        <a href={MAP_LINK_URL} target="_blank" rel="noreferrer"><FaDirections /> <span>Directions</span></a>
-        <a href={UBER_EATS_URL} target="_blank" rel="noreferrer"><FaShoppingBag /> <span>Order</span></a>
+      <section id="welcome" className="intro section container">
+        <div><p className="eyebrow">A Ragama favourite since 2012</p><h2>Good food deserves another round.</h2></div>
+        <div className="intro-copy"><p>Sensasia is a neighbourhood restaurant, pub and cocktail bar built for the whole night—not only the meal. Drop in for dinner, bring friends for the match, gather the family or stay for the music.</p><div className="proof"><span><FaCheck/> Open every day</span><span><FaCheck/> Dine-in & delivery</span><span><FaCheck/> Weekly entertainment</span></div></div>
       </section>
 
-      <section id="start" className="intro-section container">
-        <div className="section-marker">Sensasia · Peralanda Road</div>
-        <div className="intro-grid">
-          <h2>A neighbourhood favourite since 2012.</h2>
-          <div className="intro-copy">
-            <p>
-              Sensasia is a relaxed restaurant and pub bar in Peralanda, Ragama.
-              We serve Asian fusion and Sri Lankan favourites, cocktails and sharing
-              plates in a space made for family dinners, date nights and evenings with friends.
-            </p>
-            <div className="intro-proof">
-              <span><FaCheckCircle /> Open every day</span>
-              <span><FaCheckCircle /> Dine-in & delivery</span>
-              <span><FaCheckCircle /> Live entertainment</span>
-            </div>
+      <section className="cocktail-takeover" aria-labelledby="cocktail-heading">
+        <ResponsiveImage src="/images/bar-special.jpg" alt="Blue Margarita cocktail at Sensasia in Ragama" className="cocktail-takeover-media" imageClassName="cocktail-takeover-image" sizes="100vw" />
+        <div className="cocktail-takeover-shade" />
+        <div className="cocktail-orbit" aria-hidden="true"><span>Shake</span><span>Pour</span><span>Stay</span></div>
+        <div className="container cocktail-takeover-inner">
+          <div className="cocktail-giant" aria-hidden="true">POUR</div>
+          <div className="cocktail-copy">
+            <p className="eyebrow light"><FaCocktail/> The Sensasia bar</p>
+            <h2 id="cocktail-heading">Your night deserves <em>a proper cocktail.</em></h2>
+            <p>Signature serves, familiar classics, spirits, beer, wine and non-alcoholic choices. Start at the bar, take it to the table and stay for what happens next.</p>
+            <div className="cocktail-tags" aria-label="Drinks available"><span>Signature cocktails</span><span>Classics</span><span>Full bar</span></div>
+            <a className="button button-cream" href={SITE.drinksMenu} target="_blank" rel="noreferrer">Explore the drinks menu <FaArrowRight/></a>
           </div>
         </div>
       </section>
 
-      <section className="signature-section container" aria-labelledby="signature-heading">
-        <div className="section-heading-row">
-          <div>
-            <div className="section-marker">Popular at Sensasia</div>
-            <h2 id="signature-heading">House favourites.</h2>
-          </div>
-          <Link to="/menu" className="text-link">See full food & drinks menu <FaArrowRight /></Link>
-        </div>
-        <div className="signature-grid">
-          {DISHES.map((dish, index) => (
-            <article className={dish.className} key={dish.name}>
-              <ResponsiveImage
-                src={dish.image}
-                alt={dish.alt}
-                className="signature-media"
-                imageClassName="signature-image"
-                sizes={index === 0 ? "(max-width: 760px) 92vw, 56vw" : "(max-width: 760px) 92vw, 28vw"}
-              />
-              <div className="signature-overlay" />
-              <div className="signature-copy">
-                <span>0{index + 1}</span>
-                <h3>{dish.name}</h3>
-                <p>{dish.note}</p>
-              </div>
-            </article>
-          ))}
-        </div>
+      <section className="section experiences container">
+        <div className="section-heading"><div><p className="eyebrow">Four sides of Sensasia</p><h2>Pick your kind of night.</h2></div><p>Food, a proper bar, big screens and a weekly line-up—all under one roof on Peralanda Road.</p></div>
+        <div className="experience-grid">{experiences.map((item, i) => <article className="experience-card" key={item.title}><ResponsiveImage src={item.image} alt={`${item.title} at Sensasia in Ragama`} className="card-media" imageClassName="card-image" sizes="(max-width: 760px) 92vw, 50vw"/><div className="card-shade"/><span className="card-number">0{i+1}</span><div className="card-copy"><h3>{item.title}</h3><p>{item.copy}</p>{item.link && (item.link.startsWith("#") ? <a href={item.link}>{item.label} <FaArrowRight/></a> : <Link to={item.link}>{item.label} <FaArrowRight/></Link>)}</div></article>)}</div>
       </section>
 
-      <section className="lineup-section">
-        <div className="lineup-inner container">
-          <div className="lineup-intro">
-            <div className="section-marker section-marker-light"><FaCalendarAlt /> Weekly events</div>
-            <h2>What’s on this week.</h2>
-            <p>Karaoke, bands and live music every week. Order dinner, get a round in and enjoy the show.</p>
-            <a href={`tel:${PHONE_TEL}`} className="action-button action-button-light">
-              Call {PHONE_DISPLAY}
-            </a>
-          </div>
-          <div className="event-stack">
-            {EVENTS.map(({ day, title, time, Icon }) => (
-              <article className="new-event-card" key={day}>
-                <span className="event-day-new">{day}</span>
-                <Icon aria-hidden="true" />
-                <div><h3>{title}</h3><p>{time}</p></div>
-              </article>
-            ))}
-            <p className="schedule-note">Event times can change. Call ahead to confirm tonight’s line-up.</p>
-          </div>
-        </div>
+      <section className="section signature container">
+        <div className="section-heading"><div><p className="eyebrow">Plates & pours</p><h2>House favourites.</h2></div><Link className="text-link" to="/menu">Full food & drinks menu <FaArrowRight/></Link></div>
+        <div className="signature-grid">{dishes.map((dish, i) => <article className={i === 0 ? "dish-card featured" : "dish-card"} key={dish.title}><ResponsiveImage src={dish.image} alt={`${dish.title} at Sensasia`} className="card-media" imageClassName="card-image" sizes={i === 0 ? "(max-width: 760px) 92vw, 58vw" : "(max-width: 760px) 92vw, 30vw"}/><div className="card-shade"/><div className="card-copy"><span>0{i+1}</span><h3>{dish.title}</h3><p>{dish.copy}</p></div></article>)}</div>
       </section>
 
-      <section className="experience-section container">
-        <div className="experience-photo">
-          <ResponsiveImage
-            src="/images/about1.jpg"
-            alt="Guests gathered around a table at Sensasia Restaurant and Bar in Ragama"
-            className="experience-media"
-            imageClassName="experience-image"
-            sizes="(max-width: 760px) 100vw, 52vw"
-          />
-        </div>
-        <div className="experience-copy">
-          <div className="section-marker">Dine · drink · stay</div>
-          <h2>A proper night out, all in one place.</h2>
-          <p>
-            Start with dinner, move on to cocktails and stay for the music.
-            Sensasia works just as well for a quiet meal as it does for a birthday
-            table or a Friday out with friends.
-          </p>
-          <div className="experience-list">
-            <span><strong>01</strong> Warm, relaxed dining</span>
-            <span><strong>02</strong> Cocktails & full bar</span>
-            <span><strong>03</strong> Karaoke & live music</span>
-          </div>
-          <Link to="/about" className="text-link">Meet Sensasia <FaArrowRight /></Link>
-        </div>
-      </section>
+      <section className="drinks-band"><div className="container drinks-grid"><div><p className="eyebrow light">Behind the bar</p><h2>Cocktails made properly.</h2><p>Signature cocktails, familiar classics, spirits, beer, wine and non-alcoholic choices—ready for dinner, the match or a late round.</p><a className="button button-cream" href={SITE.drinksMenu} target="_blank" rel="noreferrer">View drinks menu PDF <FaArrowRight/></a></div><ResponsiveImage src="/images/bar-special.jpg" alt="Blue Margarita cocktail at Sensasia" className="drinks-image-wrap" imageClassName="drinks-image" sizes="(max-width: 760px) 100vw, 50vw"/></div></section>
 
-      <section className="visit-section container" aria-labelledby="visit-heading">
-        <div className="visit-details">
-          <div className="section-marker">Visit Sensasia</div>
-          <h2 id="visit-heading">Find us on Peralanda Road.</h2>
-          <div className="visit-info-row">
-            <FaMapMarkerAlt /><div><strong>Peralanda Road</strong><span>Ragama 11010, Sri Lanka</span></div>
-          </div>
-          <div className="visit-info-row">
-            <FaRegClock /><div><strong>Open daily</strong><span>10:00 AM – Midnight</span></div>
-          </div>
-          <div className="visit-actions">
-            <a className="action-button action-button-primary" href={MAP_LINK_URL} target="_blank" rel="noreferrer">
-              Get directions <FaDirections />
-            </a>
-            <a className="text-link" href={`tel:${PHONE_TEL}`}>{PHONE_DISPLAY}</a>
-          </div>
-        </div>
-        <MapEmbed className="visit-map" />
-      </section>
+      <section id="whats-on" className="events-section section"><div className="container events-grid"><div><p className="eyebrow light">Every week in Ragama</p><h2>What’s on.</h2><p>Karaoke, live bands and music with dinner and a full bar. Call ahead if you are travelling for a specific night.</p><a className="button button-cream" href={`tel:${SITE.phoneTel}`}>Call to reserve <FaPhoneAlt/></a></div><Events/></div></section>
 
-      <section className="faq-section container" aria-labelledby="faq-heading">
-        <div>
-          <div className="section-marker">Plan your visit</div>
-          <h2 id="faq-heading">Before you visit.</h2>
-        </div>
-        <div className="faq-list">
-          {FAQS.map((faq) => (
-            <details key={faq.question}>
-              <summary>{faq.question}<span aria-hidden="true">+</span></summary>
-              <p>{faq.answer}</p>
-            </details>
-          ))}
-        </div>
-      </section>
+      <section className="screen-section section container"><div className="screen-image"><ResponsiveImage src="/images/about5.jpg" alt="Sensasia restaurant and entertainment atmosphere" className="full-media" imageClassName="card-image" sizes="(max-width:760px) 100vw, 55vw"/></div><div><p className="eyebrow"><FaTv/> Big-screen entertainment</p><h2>Big games. Big screens. Full bar.</h2><p>Catch major sporting moments and entertainment with the people who make them better. Settle in with food for the table and drinks from the bar.</p><div className="night-steps"><span><b>01</b>Dinner</span><span><b>02</b>Cocktails</span><span><b>03</b>The match or music</span><span><b>04</b>One more round</span></div></div></section>
+
+      <section className="gallery section container"><div className="section-heading"><div><p className="eyebrow">Inside Sensasia</p><h2>One place. Every kind of night.</h2></div></div><div className="gallery-grid">{["about1","food1","about3","about4","food2","about6"].map((name,i)=><ResponsiveImage key={name} src={`/images/${name}.jpg`} alt={["Guests dining at Sensasia","A Sensasia food dish","Sensasia dining room","Sensasia evening atmosphere","A dish from the Sensasia kitchen","Sensasia restaurant interior"][i]} className={`gallery-item gallery-${i+1}`} imageClassName="card-image" sizes="(max-width:760px) 50vw, 33vw"/>)}</div></section>
+
+      <section className="visit section container"><div className="visit-panel"><p className="eyebrow">Visit Sensasia</p><h2>Your table in Ragama is waiting.</h2><address><span><FaMapMarkerAlt/><b>{SITE.street}</b><small>Ragama 11010, Sri Lanka</small></span><span><FaRegClock/><b>Open daily</b><small>{SITE.hours}</small></span><span><FaPhoneAlt/><b><a href={`tel:${SITE.phoneTel}`}>{SITE.phoneDisplay}</a></b><small>Call to reserve</small></span></address><a className="button button-wine" href={SITE.map} target="_blank" rel="noreferrer">Get directions <FaDirections/></a></div><MapEmbed className="visit-map"/></section>
+
+      <section className="faq section container"><div><p className="eyebrow">Before you visit</p><h2>Good to know.</h2></div><div className="faq-list">{faqs.map(([q,a])=><details key={q}><summary>{q}<span aria-hidden="true">+</span></summary><p>{a}</p></details>)}</div></section>
     </main>
   );
 }
