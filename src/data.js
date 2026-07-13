@@ -46,18 +46,18 @@ export const MENU_HIGHLIGHTS = [
 
 export const SEO = {
   "/": {
-    title: "Sensasia Ragama | Asian-Fusion Restaurant, Cocktail Bar & Live Entertainment",
-    description: "Asian-fusion food, cocktails, big-screen entertainment, karaoke and live music on Peralanda Road, Ragama. View menus or call Sensasia to reserve.",
+    title: "Authentic Asian Fusion Restaurant in Ragama | Sensasia",
+    description: "Authentic Asian-fusion cuisine, cocktails and live entertainment at Sensasia on Peralanda Road, Ragama. View the menus or call to reserve a table.",
     image: "/images/hero-bg.jpg",
   },
   "/menu": {
     title: "Food & Drinks Menu | Sensasia Restaurant and Bar Ragama",
-    description: "Browse Sensasia food and drinks highlights, then open the full PDF menus. Asian-fusion favourites, cocktails and a full bar in Ragama.",
+    description: "Explore Sensasia’s authentic Asian-fusion cuisine, house favourites, cocktails and full bar menu in Ragama. View the complete food and drinks menus.",
     image: "/images/food4.jpg",
   },
   "/about": {
     title: "About Sensasia | Restaurant, Pub and Live Entertainment in Ragama",
-    description: "Meet Sensasia, a Ragama neighbourhood restaurant, pub and entertainment venue serving Asian-fusion food and cocktails since 2012.",
+    description: "Meet Sensasia, a Ragama restaurant and entertainment venue serving authentic Asian-fusion cuisine, cocktails and memorable nights since 2012.",
     image: "/images/about1.jpg",
   },
   "/contact": {
