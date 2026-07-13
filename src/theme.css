@@ -1,72 +1,27 @@
 /*
  * Sensasia theme control surface.
  * Components consume these semantic tokens through the aliases in App.css.
- * Add or adjust an event palette here; do not scatter event colors through components.
+ * Preview themes intentionally share one permanent after-dark brand palette.
  */
 :root,
-[data-theme="default"] {
-  --theme-ink: #17130f;
-  --theme-night: #090807;
-  --theme-night-soft: #15120f;
-  --theme-cream: #ded6ca;
-  --theme-cream-deep: #cec2b3;
-  --theme-paper: #eae3d9;
-  --theme-accent: #a52c35;
-  --theme-accent-strong: #70151e;
-  --theme-highlight: #c98b55;
-  --theme-attention: #d9f75b;
-  --theme-cocktail: #82e5e7;
-  --theme-muted: #665f57;
-  --theme-on-dark: #fffaf3;
-  --theme-status-open: #d9f75b;
-  --theme-status-closed: #db6262;
-  --theme-radius: 3px;
-}
-
-[data-theme="match-night"] {
-  --theme-ink: #102019;
-  --theme-night: #07150f;
-  --theme-night-soft: #10271c;
-  --theme-cream: #eef1e7;
-  --theme-cream-deep: #dce4d5;
-  --theme-paper: #f7f8f2;
-  --theme-accent: #127a45;
-  --theme-accent-strong: #07542d;
-  --theme-highlight: #e1b84b;
-  --theme-attention: #d8ff55;
-  --theme-cocktail: #83e6c0;
-  --theme-muted: #657269;
-  --theme-status-open: #d8ff55;
-}
-
-[data-theme="karaoke-night"] {
-  --theme-ink: #24151e;
-  --theme-night: #180a12;
-  --theme-night-soft: #2b1120;
-  --theme-cream: #f4e9ee;
-  --theme-cream-deep: #e8d5de;
-  --theme-paper: #fcf6f9;
-  --theme-accent: #b52864;
-  --theme-accent-strong: #7b1642;
-  --theme-highlight: #ed9a66;
-  --theme-attention: #f0ff64;
-  --theme-cocktail: #f1a9d0;
-  --theme-muted: #7a6872;
-  --theme-status-open: #f0ff64;
-}
-
+[data-theme="default"],
+[data-theme="match-night"],
+[data-theme="karaoke-night"],
 [data-theme="live-music"] {
-  --theme-ink: #21170f;
-  --theme-night: #171008;
-  --theme-night-soft: #2b1d10;
-  --theme-cream: #f3ead9;
-  --theme-cream-deep: #e5d5bc;
-  --theme-paper: #fbf5e9;
-  --theme-accent: #a43d21;
-  --theme-accent-strong: #6f2615;
-  --theme-highlight: #d99a45;
-  --theme-attention: #e8f45b;
-  --theme-cocktail: #e8bb69;
-  --theme-muted: #766a5d;
-  --theme-status-open: #e8f45b;
+  --theme-ink: #f4f1ed;
+  --theme-night: #050506;
+  --theme-night-soft: #0c0c0e;
+  --theme-cream: #0a0a0b;
+  --theme-cream-deep: #141416;
+  --theme-paper: #111113;
+  --theme-accent: #c51f32;
+  --theme-accent-strong: #941323;
+  --theme-highlight: #f04b5d;
+  --theme-attention: #ff5265;
+  --theme-cocktail: #f04b5d;
+  --theme-muted: #b7b0aa;
+  --theme-on-dark: #fffaf6;
+  --theme-status-open: #75df9b;
+  --theme-status-closed: #f06a76;
+  --theme-radius: 2px;
 }

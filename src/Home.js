@@ -54,9 +54,9 @@ export default function Home() {
         <div className="hero-overlay" />
         <div className="container hero-content">
           <div className="hero-copy">
-            <p className="eyebrow light">Asian fusion · cocktail bar · live entertainment</p>
-            <h1>Proper cocktails. <em>A better night out</em> in Ragama.</h1>
-            <p className="hero-lead">Start with a drink made properly. Add Asian-fusion favourites, live music, karaoke and the biggest moments on screen.</p>
+            <p className="eyebrow light">Asian-fusion kitchen · cocktail bar · live nights</p>
+            <h1>Ragama, <em>your night starts here.</em></h1>
+            <p className="hero-lead">Come hungry. Leave late. Asian-fusion plates, serious cocktails, live music, karaoke and the big game—all under one roof.</p>
             <div className="button-row"><Link className="button button-wine" to="/menu">View the menu <FaArrowRight/></Link><a className="button button-outline" href={`tel:${SITE.phoneTel}`}>Reserve a table <FaPhoneAlt/></a></div>
             <a className="hero-text-link" href="#whats-on">See what’s on <FaArrowRight/></a>
           </div>
@@ -86,7 +86,7 @@ export default function Home() {
       </section>
 
       <section id="welcome" className="intro section container">
-        <div><SectionEyebrow number="01">A Ragama favourite since 2012</SectionEyebrow><h2>Good food deserves another round.</h2></div>
+        <div><SectionEyebrow number="01">A Ragama favourite since 2012</SectionEyebrow><h2>Dinner is just the beginning.</h2></div>
         <div className="intro-copy"><p>Sensasia is Ragama’s neighbourhood spot for dinner, cocktails, the match and live nights—whether you’re bringing family, friends or the whole group.</p><div className="proof"><span><FaCheck/> Open every day</span><span><FaCheck/> Dine-in & delivery</span><span><FaCheck/> Weekly entertainment</span></div></div>
       </section>
 

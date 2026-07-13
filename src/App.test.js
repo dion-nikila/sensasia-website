@@ -14,6 +14,6 @@ jest.mock('react-router-dom', () => {
 
 test('renders Sensasia homepage', () => {
   render(<App />);
-  expect(screen.getByRole('heading', { name: /proper cocktails.*better night out in ragama/i })).toBeInTheDocument();
-  expect(screen.getByRole('heading', { name: /good food deserves another round/i })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: /ragama.*your night starts here/i })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: /dinner is just the beginning/i })).toBeInTheDocument();
 });
