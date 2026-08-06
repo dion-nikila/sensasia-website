@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { NavLink, Route, Routes, useLocation } from "react-router-dom";
+import { NavLink, Route, Routes } from "react-router-dom";
 import { FaDirections, FaPhoneAlt, FaShoppingBag, FaUtensils } from "react-icons/fa";
 import Navbar from "./Navbar";
 import Home from "./Home";
@@ -13,7 +13,6 @@ import { SITE } from "./data";
 import { resolveTheme, THEME_COLORS } from "./themeConfig";
 
 export default function App() {
-  const { pathname, hash } = useLocation();
   const [theme] = useState(resolveTheme);
   const [dockVisible, setDockVisible] = useState(true);
   const previousScroll = useRef(0);
@@ -35,19 +34,6 @@ export default function App() {
     document.querySelector('meta[name="theme-color"]')?.setAttribute("content", THEME_COLORS[theme]);
     return () => delete document.documentElement.dataset.theme;
   }, [theme]);
-
-  useEffect(() => {
-    const frame = window.requestAnimationFrame(() => {
-      const target = hash ? document.querySelector(hash) : null;
-      if (target) {
-        const headerOffset = document.querySelector(".site-header")?.getBoundingClientRect().height || 0;
-        window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - headerOffset - 12, behavior: "auto" });
-      } else {
-        document.getElementById("main-content")?.focus({ preventScroll: true });
-      }
-    });
-    return () => window.cancelAnimationFrame(frame);
-  }, [pathname, hash]);
 
   return (
     <div className="app-root" data-theme={theme}>
