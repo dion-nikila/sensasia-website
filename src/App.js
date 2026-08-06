@@ -17,28 +17,13 @@ export default function App() {
   const [theme] = useState(resolveTheme);
   const [dockVisible, setDockVisible] = useState(true);
   const previousScroll = useRef(0);
-  const directionStart = useRef(0);
-  const scrollDirection = useRef(null);
-  const dockVisibleRef = useRef(true);
 
   useEffect(() => {
     const onScroll = () => {
       const current = window.scrollY;
       const nearTop = current < 120;
       const nearBottom = window.innerHeight + current >= document.documentElement.scrollHeight - 120;
-      const direction = current > previousScroll.current ? "down" : current < previousScroll.current ? "up" : scrollDirection.current;
-      if (direction !== scrollDirection.current) {
-        scrollDirection.current = direction;
-        directionStart.current = previousScroll.current;
-      }
-      let nextVisible = dockVisibleRef.current;
-      if (nearTop || nearBottom) nextVisible = true;
-      else if (direction === "down" && current - directionStart.current > 56) nextVisible = false;
-      else if (direction === "up" && directionStart.current - current > 72) nextVisible = true;
-      if (nextVisible !== dockVisibleRef.current) {
-        dockVisibleRef.current = nextVisible;
-        setDockVisible(nextVisible);
-      }
+      setDockVisible(nearTop || nearBottom || current < previousScroll.current - 8);
       previousScroll.current = current;
     };
     window.addEventListener("scroll", onScroll, { passive: true });
