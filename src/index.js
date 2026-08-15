@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import './theme.css';
 import './App.css';
+import './home/experience.css';
 import { resolveTheme, THEME_COLORS } from './themeConfig';
 
 const initialTheme = resolveTheme();

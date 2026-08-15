@@ -6,14 +6,17 @@ jest.mock('react-router-dom', () => {
   return {
     Link: ({ children, to, ...props }) => <a href={to} {...props}>{children}</a>,
     NavLink: ({ children, to, end, ...props }) => <a href={to} {...props}>{children}</a>,
-    Route: ({ element }) => element,
-    Routes: ({ children }) => <>{children}</>,
+    Route: () => null,
+    Routes: ({ children }) => React.Children.toArray(children)
+      .find((route) => route.props.path === '/')?.props.element || null,
     useLocation: () => ({ pathname: '/' }),
+    useNavigationType: () => 'POP',
   };
 }, { virtual: true });
 
 test('renders Sensasia homepage', () => {
   render(<App />);
-  expect(screen.getByRole('heading', { name: /come for the food.*stay for the night/i })).toBeInTheDocument();
-  expect(screen.getByRole('heading', { name: /dinner is just the beginning/i })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: /your night starts here/i })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: /come hungry/i })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: /dinner gets louder/i })).toBeInTheDocument();
 });

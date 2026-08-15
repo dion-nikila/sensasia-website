@@ -14,20 +14,27 @@ export default function Navbar() {
     onScroll(); window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-  useEffect(() => { setOpen(false); window.scrollTo(0, 0); }, [pathname]);
+  useEffect(() => { setOpen(false); }, [pathname]);
   useEffect(() => {
     document.body.classList.toggle("menu-open", open);
-    if (open) window.requestAnimationFrame(() => navRef.current?.querySelector("a")?.focus());
+    const focusTimer = open
+      ? window.setTimeout(() => navRef.current?.querySelector("a")?.focus(), 40)
+      : null;
     const onKey = (event) => { if (event.key === "Escape") { setOpen(false); toggleRef.current?.focus(); } };
     document.addEventListener("keydown", onKey);
-    return () => { document.body.classList.remove("menu-open"); document.removeEventListener("keydown", onKey); };
+    return () => {
+      document.body.classList.remove("menu-open");
+      document.removeEventListener("keydown", onKey);
+      window.clearTimeout(focusTimer);
+    };
   }, [open]);
 
   return (
     <header className={`site-header ${scrolled || pathname !== "/" ? "is-solid" : ""}`}>
       <div className="container header-inner">
         <NavLink className="wordmark" to="/" aria-label="Sensasia home">
-          <strong>Sensasia</strong><span>Restaurant · Bar · Ragama</span>
+          <img src="/images/logo.png" alt="" />
+          <span>Restaurant · Bar · Ragama</span>
         </NavLink>
         <button ref={toggleRef} className="nav-toggle" type="button" aria-expanded={open} aria-controls="main-navigation" onClick={() => setOpen(!open)}>
           <span className="sr-only">{open ? "Close" : "Open"} navigation</span><i/><i/>
