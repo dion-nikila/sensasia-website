@@ -2,8 +2,9 @@ import React, { useMemo, useRef, useState } from "react";
 import ArrivalScene from "./scenes/ArrivalScene";
 import TableScene from "./scenes/TableScene";
 import MusicScene from "./scenes/MusicScene";
-import SceneWipe from "./transitions/SceneWipe";
-import SteamTransition from "./transitions/SteamTransition";
+import CocktailFeature from "./sections/CocktailFeature";
+import BigScreenFeature from "./sections/BigScreenFeature";
+import NightGuide from "./sections/NightGuide";
 import ExperienceDebug from "./experience/ExperienceDebug";
 import useReducedMotion from "./hooks/useReducedMotion";
 import useExperienceTimeline from "./hooks/useExperienceTimeline";
@@ -39,21 +40,22 @@ export default function SensasiaExperience() {
 
   return (
     <main className="sensasia-experience">
-      <a className="sx-skip-experience" href="#experience-end" onClick={skipExperience}>Skip to live nights</a>
+      <a className="sx-skip-experience" href="#experience-end" onClick={skipExperience}>Skip the opening scenes</a>
       <div
         ref={sequenceRef}
         className={`sx-sequence ${motionReady ? "is-motion-ready" : ""} ${reducedMotion ? "is-static" : ""}`}
       >
-        <div className={`sx-stage ${currentScene === "WIPE" || currentScene === "STEAM" ? "is-transitioning" : ""}`}>
+        <div className={`sx-stage ${currentScene === "TRANSITION" ? "is-transitioning" : ""}`}>
           <ArrivalScene active={isInteractive("ARRIVAL")} staticMode={reducedMotion} />
           <TableScene active={isInteractive("TABLE")} staticMode={reducedMotion} />
-          <MusicScene active={isInteractive("MUSIC")} staticMode={reducedMotion} />
-          <SceneWipe />
-          <SteamTransition />
         </div>
         <span id="experience-end" className="sx-end-anchor" tabIndex="-1" />
         {debugOptions.enabled && <ExperienceDebug scene={currentScene} />}
       </div>
+      <CocktailFeature />
+      <MusicScene active staticMode flowMode />
+      <BigScreenFeature />
+      <NightGuide />
     </main>
   );
 }

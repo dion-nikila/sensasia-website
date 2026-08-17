@@ -1,0 +1,95 @@
+{
+  "siteUrl": "https://www.sensasia.lk",
+  "siteName": "Sensasia Restaurant & Bar",
+  "shortName": "Sensasia",
+  "locale": "en_LK",
+  "language": "en-LK",
+  "business": {
+    "description": "Asian-fusion dining, a full bar, live entertainment and big-screen sports on Peralanda Road in Ragama.",
+    "telephone": "+94112957700",
+    "foundingDate": "2012",
+    "streetAddress": "96/A/03, Peralanda Road",
+    "addressLocality": "Ragama",
+    "addressRegion": "Western Province",
+    "postalCode": "11010",
+    "addressCountry": "LK",
+    "opens": "10:00",
+    "closes": "23:59",
+    "servesCuisine": [
+      "Asian Fusion",
+      "Asian",
+      "Sri Lankan"
+    ],
+    "map": "https://www.google.com/maps/search/?api=1&query=Sensasia%20Restaurant%2C%2096%2FA%2F03%20Peralanda%20Road%2C%20Ragama%2011010%2C%20Sri%20Lanka",
+    "sameAs": [
+      "https://www.facebook.com/sens.asia",
+      "https://www.instagram.com/sensasia.restaurant/?hl=en"
+    ]
+  },
+  "routes": {
+    "/": {
+      "name": "Home",
+      "title": "Sensasia Restaurant & Bar | Asian Fusion in Ragama",
+      "description": "Visit Sensasia on Peralanda Road, Ragama for Asian-fusion dining, live entertainment, big-screen sports and a welcoming night out.",
+      "image": "/images/hero-bg.jpg",
+      "imageAlt": "Sensasia Restaurant & Bar in Ragama",
+      "robots": "index, follow, max-image-preview:large"
+    },
+    "/menu": {
+      "name": "Food & Drinks Menu",
+      "title": "Food & Drinks Menu | Sensasia Restaurant & Bar Ragama",
+      "description": "Explore Sensasia's Asian-fusion dishes, sharing plates, house favourites and drinks menu in Ragama, with complete menus available online.",
+      "image": "/images/food3.jpg",
+      "imageAlt": "Asian-fusion dishes served at Sensasia in Ragama",
+      "robots": "index, follow, max-image-preview:large"
+    },
+    "/about": {
+      "name": "About Sensasia",
+      "title": "About Sensasia | Restaurant & Live Entertainment in Ragama",
+      "description": "Discover Sensasia Restaurant & Bar, bringing Asian-fusion dining, group nights and live entertainment together in Ragama since 2012.",
+      "image": "/images/about1.jpg",
+      "imageAlt": "Guests dining at Sensasia Restaurant & Bar",
+      "robots": "index, follow, max-image-preview:large"
+    },
+    "/contact": {
+      "name": "Contact & Reservations",
+      "title": "Contact, Directions & Reservations | Sensasia Ragama",
+      "description": "Call Sensasia to reserve a table, find directions to Peralanda Road, check opening hours or plan dinner and entertainment in Ragama.",
+      "image": "/images/about5.jpg",
+      "imageAlt": "Sensasia Restaurant & Bar venue in Ragama",
+      "robots": "index, follow, max-image-preview:large"
+    },
+    "/family-dining": {
+      "name": "Family Dining",
+      "title": "Family Dining & Group Outings in Ragama | Sensasia",
+      "description": "Plan a family meal or group outing at Sensasia in Ragama, with Asian-fusion dishes, sharing plates and tables for relaxed occasions.",
+      "image": "/images/about3.jpg",
+      "imageAlt": "Sensasia dining room prepared for families and groups",
+      "robots": "index, follow, max-image-preview:large"
+    },
+    "/live-music": {
+      "name": "Live Music",
+      "title": "Live Music & Karaoke in Ragama | Sensasia",
+      "description": "See Sensasia's regular live music, band and karaoke nights in Ragama, then call the restaurant to confirm the latest programme and reserve.",
+      "image": "/images/about2.jpg",
+      "imageAlt": "A live performance at Sensasia in Ragama",
+      "robots": "index, follow, max-image-preview:large"
+    },
+    "/sports-screenings": {
+      "name": "Sports Screenings",
+      "title": "Big-Screen Sports in Ragama | Sensasia",
+      "description": "Watch selected major matches and sporting events on the big screen at Sensasia in Ragama, with food, table service and advance enquiries by phone.",
+      "image": "/images/big-screen-match.jpg",
+      "imageAlt": "Guests watching a major match on the big screen at Sensasia",
+      "robots": "index, follow, max-image-preview:large"
+    },
+    "/404": {
+      "name": "Page Not Found",
+      "title": "Page Not Found | Sensasia Ragama",
+      "description": "The requested page could not be found. Return to Sensasia Restaurant & Bar in Ragama or use the main navigation.",
+      "image": "/images/hero-bg.jpg",
+      "imageAlt": "Sensasia Restaurant & Bar in Ragama",
+      "robots": "noindex, follow"
+    }
+  }
+}

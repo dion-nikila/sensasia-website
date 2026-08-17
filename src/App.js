@@ -9,6 +9,7 @@ import Contact from "./Contact";
 import Footer from "./Footer";
 import Seo from "./Seo";
 import NotFound from "./NotFound";
+import LocalExperiencePage from "./LocalExperiencePage";
 import { SITE } from "./data";
 import { resolveTheme, THEME_COLORS } from "./themeConfig";
 
@@ -100,6 +101,9 @@ export default function App() {
           <Route path="/menu" element={<Menu />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/family-dining" element={<LocalExperiencePage experience="family" />} />
+          <Route path="/live-music" element={<LocalExperiencePage experience="live" />} />
+          <Route path="/sports-screenings" element={<LocalExperiencePage experience="sports" />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

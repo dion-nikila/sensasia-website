@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-LK">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="%PUBLIC_URL%/images/logo.png" />
@@ -8,59 +8,129 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      data-home-preload
+      rel="preload"
+      as="image"
+      type="image/webp"
+      href="%PUBLIC_URL%/images/hero-bg-1280.webp"
+      imagesrcset="%PUBLIC_URL%/images/hero-bg-640.webp 640w, %PUBLIC_URL%/images/hero-bg-960.webp 960w, %PUBLIC_URL%/images/hero-bg-1280.webp 1280w"
+      imagesizes="(max-width: 700px) 100vw, 70vw"
+      fetchpriority="high"
+    />
+
+    <title>Sensasia Restaurant &amp; Bar | Asian Fusion in Ragama</title>
     <meta
       name="description"
-      content="Authentic Asian-fusion cuisine, cocktails and live entertainment at Sensasia on Peralanda Road, Ragama. View the menus or call to reserve a table."
+      content="Visit Sensasia on Peralanda Road, Ragama for Asian-fusion dining, live entertainment, big-screen sports and a welcoming night out."
     />
-    <meta
-      property="og:title"
-      content="Authentic Asian Fusion Restaurant in Ragama | Sensasia"
-    />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://www.sensasia.lk/" />
+
+    <meta property="og:title" content="Sensasia Restaurant &amp; Bar | Asian Fusion in Ragama" />
     <meta
       property="og:description"
-      content="Authentic Asian-fusion cuisine, cocktails and live entertainment on Peralanda Road in Ragama."
+      content="Visit Sensasia on Peralanda Road, Ragama for Asian-fusion dining, live entertainment, big-screen sports and a welcoming night out."
     />
-    <meta property="og:type" content="restaurant" />
-    <meta property="og:image" content="%PUBLIC_URL%/images/hero-bg.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.sensasia.lk/" />
+    <meta property="og:site_name" content="Sensasia Restaurant &amp; Bar" />
+    <meta property="og:locale" content="en_LK" />
+    <meta property="og:image" content="https://www.sensasia.lk/images/hero-bg.jpg" />
+    <meta property="og:image:alt" content="Sensasia Restaurant &amp; Bar in Ragama" />
+
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Authentic Asian Fusion Restaurant in Ragama | Sensasia"
-    />
+    <meta name="twitter:title" content="Sensasia Restaurant &amp; Bar | Asian Fusion in Ragama" />
     <meta
       name="twitter:description"
-      content="Authentic Asian-fusion cuisine, cocktails and live entertainment on Peralanda Road in Ragama."
+      content="Visit Sensasia on Peralanda Road, Ragama for Asian-fusion dining, live entertainment, big-screen sports and a welcoming night out."
     />
-    <meta name="twitter:image" content="%PUBLIC_URL%/images/hero-bg.jpg" />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+    <meta name="twitter:image" content="https://www.sensasia.lk/images/hero-bg.jpg" />
+    <meta name="twitter:image:alt" content="Sensasia Restaurant &amp; Bar in Ragama" />
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>Authentic Asian Fusion Restaurant in Ragama | Sensasia</title>
+    <script type="application/ld+json" data-sensasia-schema>
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://www.sensasia.lk/#website",
+            "url": "https://www.sensasia.lk/",
+            "name": "Sensasia Restaurant & Bar",
+            "alternateName": "Sensasia",
+            "inLanguage": "en-LK"
+          },
+          {
+            "@type": "Restaurant",
+            "@id": "https://www.sensasia.lk/#restaurant",
+            "name": "Sensasia Restaurant & Bar",
+            "alternateName": "Sensasia",
+            "url": "https://www.sensasia.lk/",
+            "telephone": "+94112957700",
+            "logo": "https://www.sensasia.lk/images/logo.png",
+            "image": [
+              "https://www.sensasia.lk/images/hero-bg.jpg",
+              "https://www.sensasia.lk/images/food4.jpg",
+              "https://www.sensasia.lk/images/about1.jpg"
+            ],
+            "foundingDate": "2012",
+            "description": "Asian-fusion dining, a full bar, live entertainment and big-screen sports on Peralanda Road in Ragama.",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "96/A/03, Peralanda Road",
+              "addressLocality": "Ragama",
+              "addressRegion": "Western Province",
+              "postalCode": "11010",
+              "addressCountry": "LK"
+            },
+            "servesCuisine": ["Asian Fusion", "Asian", "Sri Lankan"],
+            "menu": "https://www.sensasia.lk/menu",
+            "hasMap": "https://www.google.com/maps/search/?api=1&query=Sensasia%20Restaurant%2C%2096%2FA%2F03%20Peralanda%20Road%2C%20Ragama%2011010%2C%20Sri%20Lanka",
+            "acceptsReservations": true,
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday"
+                ],
+                "opens": "10:00",
+                "closes": "23:59"
+              }
+            ],
+            "sameAs": [
+              "https://www.facebook.com/sens.asia",
+              "https://www.instagram.com/sensasia.restaurant/?hl=en"
+            ]
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://www.sensasia.lk/#webpage",
+            "url": "https://www.sensasia.lk/",
+            "name": "Sensasia Restaurant & Bar | Asian Fusion in Ragama",
+            "description": "Visit Sensasia on Peralanda Road, Ragama for Asian-fusion dining, live entertainment, big-screen sports and a welcoming night out.",
+            "inLanguage": "en-LK",
+            "isPartOf": { "@id": "https://www.sensasia.lk/#website" },
+            "about": { "@id": "https://www.sensasia.lk/#restaurant" },
+            "primaryImageOfPage": {
+              "@type": "ImageObject",
+              "url": "https://www.sensasia.lk/images/hero-bg.jpg"
+            }
+          }
+        ]
+      }
+    </script>
+
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>

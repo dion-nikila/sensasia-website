@@ -48,7 +48,7 @@ export default function ResponsiveImage({
   className,
   imageClassName,
   sizes = "100vw",
-  loading = "eager",
+  loading = "lazy",
   fetchPriority,
 }) {
   const widths = WEBP_WIDTHS[src] || [];

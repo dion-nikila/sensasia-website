@@ -3,11 +3,11 @@ import ResponsiveImage from "../../ResponsiveImage";
 import { EVENTS, SITE } from "../../data";
 import { SCENE_MEDIA } from "../sceneMedia";
 
-export default function MusicScene({ active = false, staticMode = false }) {
+export default function MusicScene({ active = false, staticMode = false, flowMode = false }) {
   const inactive = !staticMode && !active;
 
   return (
-    <section id="music" className="sx-scene sx-music-scene" aria-labelledby="music-title" aria-hidden={inactive}>
+    <section id="music" className={`sx-scene sx-music-scene ${flowMode ? "sx-music-flow" : ""}`} aria-labelledby="music-title" aria-hidden={inactive}>
       <ResponsiveImage
         src={SCENE_MEDIA.music.src}
         alt={SCENE_MEDIA.music.alt}

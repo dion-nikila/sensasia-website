@@ -1,13 +1,14 @@
 import { FaGuitar, FaMicrophoneAlt, FaMusic } from "react-icons/fa";
 
 export const SITE = {
-  name: "Sensasia Restaurant and Bar",
+  name: "Sensasia Restaurant & Bar",
   shortName: "Sensasia",
-  phoneDisplay: "0112 957 700",
+  siteUrl: "https://www.sensasia.lk",
+  phoneDisplay: "011 295 7700",
   phoneTel: "0112957700",
   phoneSchema: "+94112957700",
-  address: "Peralanda Road, Ragama 11010, Sri Lanka",
-  street: "Peralanda Road",
+  address: "96/A/03, Peralanda Road, Ragama 11010, Sri Lanka",
+  street: "96/A/03, Peralanda Road",
   locality: "Ragama",
   region: "Western Province",
   postcode: "11010",
@@ -18,8 +19,8 @@ export const SITE = {
   uberEats: "https://www.ubereats.com/lk/store/sensasia-restaurant-ragama/xSqQwTKNRIS7aBF5YRel2g",
   facebook: "https://www.facebook.com/sens.asia",
   instagram: "https://www.instagram.com/sensasia.restaurant/?hl=en",
-  map: "https://www.google.com/maps/search/?api=1&query=Sensasia%20Restaurant%2C%20Peralanda%20Road%2C%20Ragama%2C%20Sri%20Lanka",
-  mapEmbed: "https://maps.google.com/maps?q=Sensasia%20Restaurant,%20Peralanda%20Road,%20Ragama,%20Sri%20Lanka&hl=en&z=15&output=embed",
+  map: "https://www.google.com/maps/search/?api=1&query=Sensasia%20Restaurant%2C%2096%2FA%2F03%20Peralanda%20Road%2C%20Ragama%2011010%2C%20Sri%20Lanka",
+  mapEmbed: "https://maps.google.com/maps?q=Sensasia%20Restaurant,%2096%2FA%2F03%20Peralanda%20Road,%20Ragama%2011010,%20Sri%20Lanka&hl=en&z=15&output=embed",
 };
 
 export const NAVIGATION = [
@@ -27,6 +28,37 @@ export const NAVIGATION = [
   { label: "Menu", to: "/menu" },
   { label: "About", to: "/about" },
   { label: "Visit", to: "/contact" },
+];
+
+export const DISCOVERY_LINKS = [
+  {
+    number: "01",
+    label: "EAT",
+    title: "Family dining",
+    to: "/family-dining",
+    copy: "Plan an Asian-fusion meal with family on Peralanda Road.",
+  },
+  {
+    number: "02",
+    label: "DRINK",
+    title: "Food & drinks menu",
+    to: "/menu",
+    copy: "Browse confirmed food, cocktail and refresher highlights.",
+  },
+  {
+    number: "03",
+    label: "STAY",
+    title: "Live music",
+    to: "/live-music",
+    copy: "See the regular karaoke, live-band and live-music schedule.",
+  },
+  {
+    number: "04",
+    label: "WATCH",
+    title: "Sports screenings",
+    to: "/sports-screenings",
+    copy: "Learn about selected big-screen sports and how to confirm a match.",
+  },
 ];
 
 export const EVENTS = [
@@ -41,33 +73,5 @@ export const MENU_HIGHLIGHTS = [
   "Cheese Kottu",
   "Pepper Pork",
   "Signature Fried Handallo",
-  "Blue Margarita",
+  "Margarita Blue",
 ];
-
-export const SEO = {
-  "/": {
-    title: "Authentic Asian Fusion Restaurant in Ragama | Sensasia",
-    description: "Authentic Asian-fusion cuisine, cocktails and live entertainment at Sensasia on Peralanda Road, Ragama. View the menus or call to reserve a table.",
-    image: "/images/hero-bg.jpg",
-  },
-  "/menu": {
-    title: "Food & Drinks Menu | Sensasia Restaurant and Bar Ragama",
-    description: "Explore Sensasia’s authentic Asian-fusion cuisine, house favourites, cocktails and full bar menu in Ragama. View the complete food and drinks menus.",
-    image: "/images/food4.jpg",
-  },
-  "/about": {
-    title: "About Sensasia | Restaurant, Pub and Live Entertainment in Ragama",
-    description: "Meet Sensasia, a Ragama restaurant and entertainment venue serving authentic Asian-fusion cuisine, cocktails and memorable nights since 2012.",
-    image: "/images/about1.jpg",
-  },
-  "/contact": {
-    title: "Contact & Reservations | Sensasia Ragama",
-    description: "Call Sensasia to reserve, get directions to Peralanda Road, order on Uber Eats, or plan dinner, drinks and live entertainment in Ragama.",
-    image: "/images/about5.jpg",
-  },
-  "/404": {
-    title: "Page Not Found | Sensasia Ragama",
-    description: "The page could not be found. Return to Sensasia Restaurant and Bar in Ragama.",
-    image: "/images/hero-bg.jpg",
-  },
-};

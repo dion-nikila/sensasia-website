@@ -1,0 +1,20 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "create-react-app",
+  "outputDirectory": "build",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "sensasia.lk"
+        }
+      ],
+      "destination": "https://www.sensasia.lk/:path*",
+      "permanent": true
+    }
+  ]
+}

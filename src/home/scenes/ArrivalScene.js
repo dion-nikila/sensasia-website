@@ -13,7 +13,7 @@ export default function ArrivalScene({ active = true, staticMode = false }) {
         alt={SCENE_MEDIA.arrival.alt}
         className="arrival-media"
         imageClassName="arrival-image"
-        sizes="100vw"
+        sizes="(max-width: 700px) 100vw, 70vw"
         loading="eager"
         fetchPriority="high"
       />
